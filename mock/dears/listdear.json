@@ -1,0 +1,22 @@
+[
+    {
+      "relationship": "Cụ b",
+      "name": "Nguyễn Văn A",
+      "image": "assets/images/anh1.jpg"
+    },
+    {
+      "relationship": "Cụ B",
+      "name": "Nguyễn Văn B",
+      "image": "assets/images/anh2.jpg"
+    },
+    {
+      "relationship": "Cụ C",
+      "name": "Nguyễn Văn C",
+      "image": "assets/images/anh3.jpg"
+    },
+    {
+      "relationship": "Cụ C",
+      "name": "Nguyễn Văn C",
+      "image": "assets/images/anh3.jpg"
+    }
+]
