@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_vinhhang/screen/homie/components/icon_button_noti.dart';
-import 'package:flutter_app_vinhhang/screen/homie/components/search_field.dart';
+import 'package:flutter_app_vinhhang/screen/relative/components/icon_button_noti.dart';
+import 'package:flutter_app_vinhhang/screen/relative/components/search_field.dart';
 
 import '../../../utils/size_config.dart';
 
-class HomieHeader extends StatelessWidget {
-  const HomieHeader({
+class RelativeHeader extends StatelessWidget {
+  const RelativeHeader({
     Key? key,
   }) : super(key: key);
 

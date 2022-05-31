@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_vinhhang/screen/homie/homie_screen.dart';
+import 'package:flutter_app_vinhhang/screen/login/login_screen.dart';
+import 'package:flutter_app_vinhhang/screen/relative/relative_screen.dart';
 
+Widget _defaultHome = const LoginScreen();
 void main() {
   runApp(const MyApp());
 }
@@ -17,7 +19,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomieScreen(),
+      routes: {
+        '/': (context) => _defaultHome,
+        // '/home': (context) => const HomeScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/relative': (context) => const RelativeScreen(),
+        // '/register': (context) => const RegisterPage(),
+      },
     );
   }
 }
