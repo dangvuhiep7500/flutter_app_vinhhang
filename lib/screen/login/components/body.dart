@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vinhhang/data/models/login_request_model.dart';
+import 'package:flutter_app_vinhhang/screen/login/components/image_top_signupin.dart';
 import 'package:flutter_app_vinhhang/screen/login/components/inline_or.dart';
 import 'package:flutter_app_vinhhang/screen/login/components/signin_FBGG.dart';
 import 'package:flutter_app_vinhhang/screen/login/components/button_login.dart';
@@ -30,54 +31,53 @@ class _BodyState extends State<Body> {
     return Scaffold(
       body: ProgressHUD(
         inAsyncCall: isApiCallProcess,
-        opacity: 0.3,
+        opacity: 0.2,
         key: UniqueKey(),
         child: SingleChildScrollView(
           child: SafeArea(
             child: Form(
               key: globalFormKey,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
-                    child: const AspectRatio(
-                      aspectRatio: 16 / 9,
-                      child: Image(
-                        image: AssetImage('assets/images/imagelogin.png'),
-                        fit: BoxFit.fill, // use this
-                      ),
-                    ),
-                  ),
+                  const ImageTop(),
                   const SizedBox(
                     height: 40,
                   ),
-                  Column(
-                    children: [
-                      InputField(
-                        text: "Email",
-                        controller: userName,
+                  InputField(
+                    text: "Tài khoản",
+                    controller: userName,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Hãy nhập tài khoản';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  InputField(
+                    text: "Mật khẩu",
+                    controller: password,
+                    obscuretext: hidePassword,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Hãy nhập mật khẩu';
+                      }
+                      return null;
+                    },
+                    sufixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          hidePassword = !hidePassword;
+                        });
+                      },
+                      color: Colors.black.withOpacity(0.7),
+                      icon: Icon(
+                        hidePassword ? Icons.visibility_off : Icons.visibility,
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      InputField(
-                        text: "Mật khẩu",
-                        controller: password,
-                        obscuretext: hidePassword,
-                        sufixIcon: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              hidePassword = !hidePassword;
-                            });
-                          },
-                          color: Colors.black.withOpacity(0.7),
-                          icon: Icon(
-                            hidePassword
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                   const SizedBox(
                     height: 20,
@@ -104,17 +104,14 @@ class _BodyState extends State<Body> {
                                 '/relative',
                                 (route) => false,
                               );
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => RelativeScreen()));
                             } else {
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(SnackBar(
-                                content: const Text(
-                                    'Tài khoản hoặc mật khẩu không đúng'),
-                                backgroundColor: Colors.red.shade300,
-                              ));
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: const Text(
+                                      'Tài khoản hoặc mật khẩu không đúng'),
+                                  backgroundColor: Colors.red.shade300,
+                                ),
+                              );
                             }
                           },
                         );
@@ -147,7 +144,9 @@ class _BodyState extends State<Body> {
                           fontWeight: FontWeight.normal,
                           fontSize: 16),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/register');
+                    },
                   ),
                   TextButton(
                     style: TextButton.styleFrom(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vinhhang/screen/login/login_screen.dart';
 import 'package:flutter_app_vinhhang/screen/relative/relative_screen.dart';
+import 'package:flutter_app_vinhhang/screen/signup/signup_screen.dart';
 
 Widget _defaultHome = const LoginScreen();
 void main() {
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         // '/home': (context) => const HomeScreen(),
         '/login': (context) => const LoginScreen(),
         '/relative': (context) => const RelativeScreen(),
-        // '/register': (context) => const RegisterPage(),
+        '/register': (context) => const SignUpScreen(),
       },
     );
   }

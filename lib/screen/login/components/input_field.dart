@@ -9,21 +9,26 @@ class InputField extends StatelessWidget {
     this.sufixIcon,
     this.obscuretext = false,
     this.controller,
+    required this.validator,
   }) : super(key: key);
   final String text;
   final Widget? sufixIcon;
   final bool obscuretext;
+  final FormFieldValidator validator;
   final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
-      height: 50,
       padding: const EdgeInsets.symmetric(horizontal: 50),
       child: TextFormField(
+        validator: validator,
         style: const TextStyle(fontSize: 15),
         obscureText: obscuretext,
         controller: controller,
         decoration: InputDecoration(
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
           border: const OutlineInputBorder(),
           labelText: text,
           hintStyle: const TextStyle(color: kColorGrey),
