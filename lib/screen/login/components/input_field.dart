@@ -18,7 +18,7 @@ class InputField extends StatelessWidget {
   final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    SizeConfig2().init(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 50),
       child: TextFormField(
@@ -27,8 +27,9 @@ class InputField extends StatelessWidget {
         obscureText: obscuretext,
         controller: controller,
         decoration: InputDecoration(
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+          contentPadding: EdgeInsets.symmetric(
+              vertical: SizeConfig2.safeBlockVertical * 1,
+              horizontal: SizeConfig2.safeBlockHorizontal * 3),
           border: const OutlineInputBorder(),
           labelText: text,
           hintStyle: const TextStyle(color: kColorGrey),

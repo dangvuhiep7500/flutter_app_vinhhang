@@ -8,6 +8,7 @@ import 'package:flutter_app_vinhhang/screen/login/components/input_field.dart';
 import 'package:flutter_app_vinhhang/screen/relative/relative_screen.dart';
 import 'package:flutter_app_vinhhang/services/api_service.dart';
 import 'package:flutter_app_vinhhang/utils/size_config.dart';
+import 'package:flutter_app_vinhhang/utils/theme.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 
@@ -28,6 +29,7 @@ class _BodyState extends State<Body> {
   var password = TextEditingController(text: "admin");
   @override
   Widget build(BuildContext context) {
+    SizeConfig2().init(context);
     return Scaffold(
       body: ProgressHUD(
         inAsyncCall: isApiCallProcess,
@@ -41,8 +43,8 @@ class _BodyState extends State<Body> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const ImageTop(),
-                  const SizedBox(
-                    height: 40,
+                  SizedBox(
+                    height: SizeConfig2.screenHeight * 0.05,
                   ),
                   InputField(
                     text: "Tài khoản",
@@ -54,8 +56,8 @@ class _BodyState extends State<Body> {
                       return null;
                     },
                   ),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    height: SizeConfig2.screenHeight * 0.0125,
                   ),
                   InputField(
                     text: "Mật khẩu",
@@ -79,8 +81,8 @@ class _BodyState extends State<Body> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: SizeConfig2.screenHeight * 0.025,
                   ),
                   ButtonLogin(
                     text: "Đăng nhập",
@@ -118,16 +120,16 @@ class _BodyState extends State<Body> {
                       }
                     },
                   ),
-                  const SizedBox(
-                    height: 15,
+                  SizedBox(
+                    height: SizeConfig2.screenHeight * 0.01875,
                   ),
                   const SignFBGG(),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: SizeConfig2.screenHeight * 0.025,
                   ),
                   const InlineOr(),
-                  const SizedBox(
-                    height: 15,
+                  SizedBox(
+                    height: SizeConfig2.screenHeight * 0.01875,
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -140,7 +142,7 @@ class _BodyState extends State<Body> {
                     child: const Text(
                       "Đăng ký tài khoản",
                       style: TextStyle(
-                          color: Colors.white,
+                          color: kColorWhite,
                           fontWeight: FontWeight.normal,
                           fontSize: 16),
                     ),
@@ -155,7 +157,7 @@ class _BodyState extends State<Body> {
                     onPressed: () {},
                     child: const Text(
                       'Quên mật khẩu?',
-                      style: TextStyle(color: Colors.grey),
+                      style: TextStyle(color: kColorGrey),
                     ),
                   ),
                 ],

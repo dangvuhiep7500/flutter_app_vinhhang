@@ -7,6 +7,8 @@ import 'package:flutter_app_vinhhang/screen/signup/components/inline_cblogin.dar
 import 'package:flutter_app_vinhhang/services/api_service.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 
+import '../../../utils/size_config.dart';
+
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
 
@@ -35,6 +37,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig2().init(context);
     return ProgressHUD(
       inAsyncCall: isApiCallProcess,
       opacity: 0.2,
@@ -46,8 +49,8 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
             child: Column(
               children: [
                 const ImageTop(),
-                const SizedBox(
-                  height: 40,
+                SizedBox(
+                  height: SizeConfig2.screenHeight * 0.05,
                 ),
                 Column(
                   children: [
@@ -61,8 +64,8 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                         return null;
                       },
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: SizeConfig2.screenHeight * 0.0125,
                     ),
                     InputField(
                       text: "Mật khẩu",
@@ -92,8 +95,8 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                         return null;
                       },
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: SizeConfig2.screenHeight * 0.025,
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -152,8 +155,8 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                         }
                       },
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: SizeConfig2.screenHeight * 0.025,
                     ),
                     const InlineCombackLogin(),
                   ],

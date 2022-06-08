@@ -34,19 +34,14 @@ class APIService {
       if (response.statusCode == 200 || response.statusCode == 400) {
         print("reponse status: ${response.body}");
         print("reponse status: ${response.statusCode}");
-        // await SharedService.setLoginDetails(
-        //   loginResponseJson(
-        //     response.body,
-        //   ),
-        // );
+
         return true;
       } else {
         throw Exception('Failed to load data');
       }
     } catch (e) {
-      print(e.toString());
+      return false;
     }
-    return false;
   }
 
   static Future<http.Response?> register(
