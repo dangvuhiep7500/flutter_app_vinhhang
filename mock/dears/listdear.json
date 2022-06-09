@@ -1,22 +1,31 @@
-[
-    {
-      "relationship": "Cụ b",
-      "name": "Nguyễn Văn A",
-      "image": "assets/images/anh1.jpg"
+[{
+        "relationship": "Cụ A",
+        "name": "Nguyễn Văn A",
+        "image": "assets/images/anh1.jpg"
     },
     {
-      "relationship": "Cụ B",
-      "name": "Nguyễn Văn B",
-      "image": "assets/images/anh2.jpg"
+        "relationship": "Cụ B",
+        "name": "Nguyễn Văn B",
+        "image": "assets/images/anh2.jpg"
     },
     {
-      "relationship": "Cụ C",
-      "name": "Nguyễn Văn C",
-      "image": "assets/images/anh3.jpg"
+        "relationship": "Cụ C",
+        "name": "Nguyễn Văn C",
+        "image": "assets/images/anh3.jpg"
     },
     {
-      "relationship": "Cụ C",
-      "name": "Nguyễn Văn C",
-      "image": "assets/images/anh3.jpg"
+        "relationship": "Cụ D",
+        "name": "Nguyễn Văn D",
+        "image": "assets/images/anh3.jpg"
+    },
+    {
+        "relationship": "Cụ E",
+        "name": "Nguyễn Văn E",
+        "image": "assets/images/anh3.jpg"
+    },
+    {
+        "relationship": "Cụ z",
+        "name": "Nguyễn Văn z",
+        "image": "assets/images/anh3.jpg"
     }
 ]

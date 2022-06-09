@@ -46,7 +46,7 @@ class IconButtonNoti extends StatelessWidget {
                     style: TextStyle(
                       fontSize: getProportionateScreenWidth(12),
                       height: 1,
-                      color: Colors.white,
+                      color: kColorWhite,
                       fontWeight: FontWeight.w600,
                     ),
                   ),

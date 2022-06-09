@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vinhhang/data/list_dear.dart';
 import 'package:flutter_app_vinhhang/data/models/listdear.model.dart';
+import 'package:flutter_app_vinhhang/screen/detailRelative/components/body.dart';
+import 'package:flutter_app_vinhhang/screen/detailRelative/relative_detail.dart';
+import 'package:flutter_app_vinhhang/screen/detailRelative/relative_detailtest.dart';
 
 import '../../../utils/size_config.dart';
 import '../../../utils/theme.dart';
@@ -38,31 +41,56 @@ class ListRelative extends StatelessWidget {
               mainAxisSpacing: 10,
               mainAxisExtent: 270,
             ),
-            itemCount: dears.length,
+            itemCount: dears.length + 1,
             itemBuilder: (BuildContext context, int index) {
               return Container(
-                padding: const EdgeInsets.all(10),
-                color: kColorCate,
-                child: Column(
-                  children: [
-                    Container(
-                      height: SizeConfig.screenWidth * 0.5,
-                      width: SizeConfig.screenWidth * 0.8,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                            image: AssetImage(dears[index].image),
-                            fit: BoxFit.cover),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(dears[index].relationship),
-                    ),
-                    Text(dears[index].name),
-                  ],
-                ),
-              );
+                  padding: const EdgeInsets.all(10),
+                  color: kColorCate,
+                  child: index < dears.length
+                      ? GestureDetector(
+                          onTap: () {
+                            // Navigator.pushNamed(
+                            //   context,
+                            //   '/relativeDetail',
+                            // );
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) =>
+                                    RelativeDetailtest(dear: dears[index])));
+                            print("object");
+                          },
+                          child: Column(
+                            children: [
+                              Container(
+                                height: SizeConfig.screenWidth * 0.5,
+                                width: SizeConfig.screenWidth * 0.8,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                      image: AssetImage(dears[index].image),
+                                      fit: BoxFit.cover),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(dears[index].relationship),
+                              ),
+                              Text(dears[index].name),
+                            ],
+                          ),
+                        )
+                      : IconButton(
+                          icon: const Icon(
+                            Icons.add_box,
+                            size: 50,
+                          ),
+                          onPressed: () {
+                            // Navigator.pushNamed(
+                            //   context,
+                            //   '/relativeDetail',
+                            // );
+                            print("object");
+                          },
+                        ));
             },
           );
         },
@@ -70,3 +98,4 @@ class ListRelative extends StatelessWidget {
     );
   }
 }
+// gotoDetailpage(BuildContext context, )

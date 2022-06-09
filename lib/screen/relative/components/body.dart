@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_vinhhang/data/list_dear.dart';
 import 'package:flutter_app_vinhhang/screen/relative/components/list_relative.dart';
 import 'package:flutter_app_vinhhang/screen/relative/components/relative_header.dart';
 import 'package:flutter_app_vinhhang/utils/theme.dart';
 
 import '../../../utils/size_config.dart';
-
-final Listmodel = AssetListDear();
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);

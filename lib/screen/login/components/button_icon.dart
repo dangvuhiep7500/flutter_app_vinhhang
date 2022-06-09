@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/size_config.dart';
+
 class ButtonIcon extends StatelessWidget {
   const ButtonIcon({
     Key? key,
@@ -10,10 +12,12 @@ class ButtonIcon extends StatelessWidget {
   final GestureTapCallback press;
   @override
   Widget build(BuildContext context) {
+    SizeConfig2().init(context);
     return IconButton(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      padding:
+          EdgeInsets.symmetric(horizontal: SizeConfig2.safeBlockHorizontal * 5),
       icon: Image.asset(urlimage),
-      iconSize: 40,
+      iconSize: SizeConfig2.screenWidth * 0.1,
       onPressed: press,
     );
   }

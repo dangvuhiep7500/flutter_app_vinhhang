@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vinhhang/data/models/login_request_model.dart';
+import 'package:flutter_app_vinhhang/screen/login/components/image_top_signupin.dart';
 import 'package:flutter_app_vinhhang/screen/login/components/inline_or.dart';
 import 'package:flutter_app_vinhhang/screen/login/components/signin_FBGG.dart';
 import 'package:flutter_app_vinhhang/screen/login/components/button_login.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_app_vinhhang/screen/login/components/input_field.dart';
 import 'package:flutter_app_vinhhang/screen/relative/relative_screen.dart';
 import 'package:flutter_app_vinhhang/services/api_service.dart';
 import 'package:flutter_app_vinhhang/utils/size_config.dart';
+import 'package:flutter_app_vinhhang/utils/theme.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 
@@ -24,63 +26,63 @@ class _BodyState extends State<Body> {
   // TextEditingController? userName = TextEditingController(text: "admin");
   // TextEditingController? password = TextEditingController(text: "admin");
   var userName = TextEditingController(text: "admin");
-  var password = TextEditingController(text: "admin");
+  var password = TextEditingController(text: "admin123");
   @override
   Widget build(BuildContext context) {
+    SizeConfig2().init(context);
     return Scaffold(
       body: ProgressHUD(
         inAsyncCall: isApiCallProcess,
-        opacity: 0.3,
+        opacity: 0.2,
         key: UniqueKey(),
         child: SingleChildScrollView(
           child: SafeArea(
             child: Form(
               key: globalFormKey,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
-                    child: const AspectRatio(
-                      aspectRatio: 16 / 9,
-                      child: Image(
-                        image: AssetImage('assets/images/imagelogin.png'),
-                        fit: BoxFit.fill, // use this
+                  const ImageTop(),
+                  SizedBox(
+                    height: SizeConfig2.screenHeight * 0.05,
+                  ),
+                  InputField(
+                    text: "Tài khoản",
+                    controller: userName,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Hãy nhập tài khoản';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(
+                    height: SizeConfig2.screenHeight * 0.0125,
+                  ),
+                  InputField(
+                    text: "Mật khẩu",
+                    controller: password,
+                    obscuretext: hidePassword,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Hãy nhập mật khẩu';
+                      }
+                      return null;
+                    },
+                    sufixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          hidePassword = !hidePassword;
+                        });
+                      },
+                      color: Colors.black.withOpacity(0.7),
+                      icon: Icon(
+                        hidePassword ? Icons.visibility_off : Icons.visibility,
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  Column(
-                    children: [
-                      InputField(
-                        text: "Email",
-                        controller: userName,
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      InputField(
-                        text: "Mật khẩu",
-                        controller: password,
-                        obscuretext: hidePassword,
-                        sufixIcon: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              hidePassword = !hidePassword;
-                            });
-                          },
-                          color: Colors.black.withOpacity(0.7),
-                          icon: Icon(
-                            hidePassword
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: SizeConfig2.screenHeight * 0.025,
                   ),
                   ButtonLogin(
                     text: "Đăng nhập",
@@ -101,36 +103,33 @@ class _BodyState extends State<Body> {
                             if (response == true) {
                               Navigator.pushNamedAndRemoveUntil(
                                 context,
-                                '/relative',
+                                '/home',
                                 (route) => false,
                               );
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => RelativeScreen()));
                             } else {
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(SnackBar(
-                                content: const Text(
-                                    'Tài khoản hoặc mật khẩu không đúng'),
-                                backgroundColor: Colors.red.shade300,
-                              ));
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: const Text(
+                                      'Tài khoản hoặc mật khẩu không đúng'),
+                                  backgroundColor: Colors.red.shade300,
+                                ),
+                              );
                             }
                           },
                         );
                       }
                     },
                   ),
-                  const SizedBox(
-                    height: 15,
+                  SizedBox(
+                    height: SizeConfig2.screenHeight * 0.01875,
                   ),
                   const SignFBGG(),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: SizeConfig2.screenHeight * 0.025,
                   ),
                   const InlineOr(),
-                  const SizedBox(
-                    height: 15,
+                  SizedBox(
+                    height: SizeConfig2.screenHeight * 0.01875,
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -143,11 +142,13 @@ class _BodyState extends State<Body> {
                     child: const Text(
                       "Đăng ký tài khoản",
                       style: TextStyle(
-                          color: Colors.white,
+                          color: kColorWhite,
                           fontWeight: FontWeight.normal,
                           fontSize: 16),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/register');
+                    },
                   ),
                   TextButton(
                     style: TextButton.styleFrom(
@@ -156,7 +157,7 @@ class _BodyState extends State<Body> {
                     onPressed: () {},
                     child: const Text(
                       'Quên mật khẩu?',
-                      style: TextStyle(color: Colors.grey),
+                      style: TextStyle(color: kColorGrey),
                     ),
                   ),
                 ],

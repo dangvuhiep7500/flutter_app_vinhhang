@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_vinhhang/utils/theme.dart';
+
+import '../../../utils/size_config.dart';
 
 class InlineOr extends StatelessWidget {
   const InlineOr({
@@ -7,26 +10,27 @@ class InlineOr extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig2().init(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children: [
         Expanded(
             child: Divider(
-          indent: 20.0,
-          endIndent: 20.0,
+          indent: SizeConfig2.screenWidth * 0.025,
+          endIndent: SizeConfig2.screenWidth * 0.025,
           thickness: 1,
           color: Colors.grey,
         )),
-        Text(
+        const Text(
           "Hoặc",
-          style: TextStyle(color: Colors.grey),
+          style: TextStyle(color: kColorGrey),
         ),
         Expanded(
             child: Divider(
-          indent: 20.0,
-          endIndent: 20.0,
+          indent: SizeConfig2.screenWidth * 0.025,
+          endIndent: SizeConfig2.screenWidth * 0.025,
           thickness: 1,
-          color: Colors.grey,
+          color: kColorGrey,
         )),
       ],
     );

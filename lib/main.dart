@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_vinhhang/screen/detailRelative/relative_detail.dart';
+import 'package:flutter_app_vinhhang/screen/detailRelative/relative_detailtest.dart';
+import 'package:flutter_app_vinhhang/screen/home/home_screen.dart';
 import 'package:flutter_app_vinhhang/screen/login/login_screen.dart';
 import 'package:flutter_app_vinhhang/screen/relative/relative_screen.dart';
+import 'package:flutter_app_vinhhang/screen/signup/signup_screen.dart';
 
 Widget _defaultHome = const LoginScreen();
 void main() {
@@ -21,10 +25,11 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (context) => _defaultHome,
-        // '/home': (context) => const HomeScreen(),
+        '/home': (context) => const HomeScreen(),
         '/login': (context) => const LoginScreen(),
         '/relative': (context) => const RelativeScreen(),
-        // '/register': (context) => const RegisterPage(),
+        // '/relativeDetail': (context) => const RelativeDetailtest(),
+        '/register': (context) => const SignUpScreen(),
       },
     );
   }
