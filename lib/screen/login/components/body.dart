@@ -26,7 +26,7 @@ class _BodyState extends State<Body> {
   // TextEditingController? userName = TextEditingController(text: "admin");
   // TextEditingController? password = TextEditingController(text: "admin");
   var userName = TextEditingController(text: "admin");
-  var password = TextEditingController(text: "admin");
+  var password = TextEditingController(text: "admin123");
   @override
   Widget build(BuildContext context) {
     SizeConfig2().init(context);
@@ -103,7 +103,7 @@ class _BodyState extends State<Body> {
                             if (response == true) {
                               Navigator.pushNamedAndRemoveUntil(
                                 context,
-                                '/relative',
+                                '/home',
                                 (route) => false,
                               );
                             } else {
