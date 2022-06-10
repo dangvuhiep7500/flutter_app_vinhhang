@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vinhhang/data/list_dear.dart';
 import 'package:flutter_app_vinhhang/data/models/listdear.model.dart';
-import 'package:flutter_app_vinhhang/screen/detailRelative/components/body.dart';
 import 'package:flutter_app_vinhhang/screen/detailRelative/relative_detail.dart';
-import 'package:flutter_app_vinhhang/screen/detailRelative/relative_detailtest.dart';
 
 import '../../../utils/size_config.dart';
 import '../../../utils/theme.dart';
@@ -55,8 +53,7 @@ class ListRelative extends StatelessWidget {
                             // );
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) =>
-                                    RelativeDetailtest(dear: dears[index])));
-                            print("object");
+                                    RelativeDetail(dear: dears[index])));
                           },
                           child: Column(
                             children: [
@@ -84,11 +81,11 @@ class ListRelative extends StatelessWidget {
                             size: 50,
                           ),
                           onPressed: () {
-                            // Navigator.pushNamed(
-                            //   context,
-                            //   '/relativeDetail',
-                            // );
-                            print("object");
+                            Navigator.pushNamed(
+                              context,
+                              '/addRelative',
+                            );
+                            // print("object");
                           },
                         ));
             },
