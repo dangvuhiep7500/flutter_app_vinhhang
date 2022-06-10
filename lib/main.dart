@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_vinhhang/screen/detailRelative/relative_detail.dart';
-import 'package:flutter_app_vinhhang/screen/detailRelative/relative_detailtest.dart';
+import 'package:flutter_app_vinhhang/screen/addRelative/add_relative.dart';
 import 'package:flutter_app_vinhhang/screen/home/home_screen.dart';
 import 'package:flutter_app_vinhhang/screen/login/login_screen.dart';
 import 'package:flutter_app_vinhhang/screen/relative/relative_screen.dart';
 import 'package:flutter_app_vinhhang/screen/signup/signup_screen.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 Widget _defaultHome = const LoginScreen();
 void main() {
@@ -18,6 +18,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: const [GlobalMaterialLocalizations.delegate],
+      supportedLocales: const [Locale('en'), Locale('vi')],
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -28,6 +30,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomeScreen(),
         '/login': (context) => const LoginScreen(),
         '/relative': (context) => const RelativeScreen(),
+        '/addRelative': (context) => const AddRelative(),
         // '/relativeDetail': (context) => const RelativeDetailtest(),
         '/register': (context) => const SignUpScreen(),
       },

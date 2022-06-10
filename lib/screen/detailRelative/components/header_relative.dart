@@ -6,7 +6,9 @@ import '../../../utils/size_config.dart';
 class Header extends StatelessWidget {
   const Header({
     Key? key,
+    required this.text,
   }) : super(key: key);
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class Header extends StatelessWidget {
           },
         ),
         Text(
-          "Chi tiết",
+          text,
           style: TextStyle(
               fontSize: getProportionateScreenWidth(24),
               color: Colors.red,
