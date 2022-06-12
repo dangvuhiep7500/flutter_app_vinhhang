@@ -75,7 +75,7 @@ class _RelativeDetailState extends State<RelativeDetail>
                             height: 20,
                           ),
                           const CardInfo(
-                            text1: "Gi?i tính",
+                            text1: "Giới tính",
                             text2: "N?",
                             number: 0.15,
                           ),
@@ -85,22 +85,22 @@ class _RelativeDetailState extends State<RelativeDetail>
                             number: 0.15,
                           ),
                           const CardInfo(
-                            text1: "Nh?m ngày",
+                            text1: "Nhằm ngày",
                             text2: "8/8/1900",
                             number: 0.15,
                           ),
                           const CardInfo(
-                            text1: "M?t ngày",
+                            text1: "Mất ngày",
                             text2: "8/8/1900",
                             number: 0.15,
                           ),
                           const CardInfo(
-                            text1: "Nh?m ngày",
+                            text1: "Nhằm ngày",
                             text2: "8/8/1900",
                             number: 0.15,
                           ),
                           const CardInfo(
-                            text1: "Hu?ng duong",
+                            text1: "Hưởng dương",
                             text2: "8/8/1900",
                             number: 0.15,
                           ),
@@ -113,7 +113,7 @@ class _RelativeDetailState extends State<RelativeDetail>
                             child: SizedBox(
                               width: MediaQuery.of(context).size.width * 0.5,
                               child: Text(
-                                "M? ph?n",
+                                "Mộ phần",
                                 style: TextStyle(
                                     fontSize: getProportionateScreenWidth(20),
                                     fontWeight: FontWeight.w700),
@@ -124,7 +124,7 @@ class _RelativeDetailState extends State<RelativeDetail>
                             height: getProportionateScreenWidth(10),
                           ),
                           const CardInfo(
-                            text1: "Tên nghia trang",
+                            text1: "Tên nghĩa trang",
                             text2: "abc",
                             number: 0.05,
                           ),
@@ -139,7 +139,7 @@ class _RelativeDetailState extends State<RelativeDetail>
                             height: getProportionateScreenWidth(10),
                           ),
                           const CardInfo(
-                            text1: "Ngày dang kí",
+                            text1: "Ngày đăng kí",
                             text2: "9/9/1900",
                             number: 0.05,
                           ),

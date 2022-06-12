@@ -25,8 +25,7 @@ class CardHeaderTextField extends StatelessWidget {
         Container(
           height: height,
           padding: EdgeInsets.symmetric(horizontal: horizontal),
-          child: TextFormField(
-            validator: validator,
+          child: TextField(
             style: TextStyle(fontSize: fontSize),
             controller: controller,
             decoration: InputDecoration(
