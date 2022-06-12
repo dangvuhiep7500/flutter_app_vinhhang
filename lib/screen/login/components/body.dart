@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vinhhang/data/models/login_request_model.dart';
+import 'package:flutter_app_vinhhang/screen/login/components/button_default.dart';
 import 'package:flutter_app_vinhhang/screen/login/components/image_top_signupin.dart';
 import 'package:flutter_app_vinhhang/screen/login/components/inline_or.dart';
 import 'package:flutter_app_vinhhang/screen/login/components/signin_FBGG.dart';
@@ -131,22 +132,11 @@ class _BodyState extends State<Body> {
                   SizedBox(
                     height: SizeConfig2.screenHeight * 0.01875,
                   ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.green,
-                      onPrimary: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
-                    child: const Text(
-                      "Đăng ký tài khoản",
-                      style: TextStyle(
-                          color: kColorWhite,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 16),
-                    ),
-                    onPressed: () {
+                  ButtonDefault(
+                    color: kColorGreen,
+                    text: "Đăng kí tài khoản",
+                    borderRadius: 10,
+                    onpress: () {
                       Navigator.pushNamed(context, '/register');
                     },
                   ),

@@ -1,12 +1,16 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vinhhang/screen/addRelative/components/card_add_img_footer.dart';
+import 'package:flutter_app_vinhhang/screen/addRelative/components/card_add_img_header.dart';
 import 'package:flutter_app_vinhhang/screen/addRelative/components/card_add_info.dart';
 import 'package:flutter_app_vinhhang/screen/addRelative/components/card_add_header_textfield.dart';
 import 'package:flutter_app_vinhhang/screen/addRelative/components/card_add_input_date.dart';
 import 'package:flutter_app_vinhhang/screen/addRelative/components/card_number_tomb.dart';
-import 'package:flutter_app_vinhhang/screen/detailRelative/components/card_img_header.dart';
 import 'package:flutter_app_vinhhang/screen/detailRelative/components/header_relative.dart';
+import 'package:flutter_app_vinhhang/screen/login/components/button_default.dart';
 import 'package:flutter_app_vinhhang/utils/size_config.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import '../../../utils/theme.dart';
 
@@ -25,7 +29,8 @@ class _AddRelativeState extends State<AddRelative>
   int _value = 0;
   DateTime? dateBirth;
   DateTime? dateDeath;
-
+  File? imageFileHeader;
+  File? imageFileFooter;
   String getTextBirth() {
     if (dateBirth == null) {
       return 'Chọn ngày';
@@ -106,51 +111,61 @@ class _AddRelativeState extends State<AddRelative>
                               const SizedBox(
                                 height: 20,
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(left: 60),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.25,
-                                      child: Text("Giới tính"),
-                                    ),
-                                    Radio(
-                                      value: 1,
-                                      groupValue: _value,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          _value = value as int;
-                                        });
-                                      },
-                                    ),
-                                    Text("Nam"),
-                                    Radio(
-                                      value: 2,
-                                      groupValue: _value,
-                                      onChanged: (value) {
-                                        setState(() {
-                                          _value = value as int;
-                                        });
-                                      },
-                                    ),
-                                    Text("Nữ"),
-                                  ],
+                              Container(
+                                height: 25,
+                                child: Padding(
+                                  padding: EdgeInsets.only(left: 60),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.25,
+                                        child: Text("Giới tính"),
+                                      ),
+                                      Radio(
+                                        value: 1,
+                                        groupValue: _value,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            _value = value as int;
+                                          });
+                                        },
+                                      ),
+                                      Text("Nam"),
+                                      Radio(
+                                        value: 2,
+                                        groupValue: _value,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            _value = value as int;
+                                          });
+                                        },
+                                      ),
+                                      Text("Nữ"),
+                                    ],
+                                  ),
                                 ),
                               ),
-                              InputDate(
-                                text1: "Sinh ngày",
-                                text2: getTextBirth(),
-                                onpress: () {
-                                  pickDateBirth(context);
-                                },
+                              SizedBox(
+                                height: 35,
+                                child: InputDate(
+                                  text1: "Sinh ngày",
+                                  text2: getTextBirth(),
+                                  onpress: () {
+                                    pickDateBirth(context);
+                                  },
+                                ),
                               ),
-                              InputDate(
-                                text1: "Mất ngày",
-                                text2: getTextDeath(),
-                                onpress: () {
-                                  pickDateDeath(context);
-                                },
+                              SizedBox(
+                                height: 35,
+                                child: InputDate(
+                                  text1: "Mất ngày",
+                                  text2: getTextDeath(),
+                                  onpress: () {
+                                    pickDateDeath(context);
+                                  },
+                                ),
                               ),
                               SizedBox(
                                 height: getProportionateScreenWidth(10),
@@ -189,6 +204,7 @@ class _AddRelativeState extends State<AddRelative>
                                     text: "Số ô:",
                                   ),
                                   CardAddNumberTomb(
+                                    left: 40,
                                     text: "Số lô:",
                                   ),
                                 ],
@@ -211,17 +227,85 @@ class _AddRelativeState extends State<AddRelative>
                                   ),
                                 ),
                               ),
+                              Container(
+                                padding: const EdgeInsets.only(left: 60),
+                                alignment: Alignment.centerLeft,
+                                child: imageFileFooter == null
+                                    ? Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 40),
+                                        child: IconButton(
+                                          onPressed: () {
+                                            _getFromGalleryFooter();
+                                          },
+                                          icon: const Icon(
+                                            Icons.add_photo_alternate,
+                                            size: 80,
+                                          ),
+                                        ),
+                                      )
+                                    : CardAddImageFooter(
+                                        image: imageFileFooter!,
+                                      ),
+                              ),
                               SizedBox(
                                 height: getProportionateScreenWidth(10),
                               ),
-                              CardAddImageFooter(
-                                  image: "assets/images/anh2.jpg"),
+                              Container(
+                                padding: EdgeInsets.only(
+                                    left: getProportionateScreenWidth(50)),
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          right:
+                                              getProportionateScreenWidth(50)),
+                                      child: ButtonDefault(
+                                        width: getProportionateScreenWidth(110),
+                                        color: kColorRed,
+                                        borderRadius: 1,
+                                        text: "Hủy bỏ",
+                                        onpress: () {
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                    ),
+                                    ButtonDefault(
+                                      width: getProportionateScreenWidth(110),
+                                      color: kColorGreen,
+                                      borderRadius: 1,
+                                      text: "Hoàn tất",
+                                      onpress: () {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: const Text(
+                                                'Thêm mới thành công'),
+                                            backgroundColor:
+                                                Colors.green.shade300,
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
                         ),
                       ),
                     ),
-                    CardImageHeader(image: "assets/images/anh2.jpg"),
+                    Container(
+                      child: imageFileHeader == null
+                          ? CardImageHeader(
+                              onpress: _getFromGalleryHeader,
+                              image: "assets/images/ImageDefault.jpg")
+                          : SizedBox(
+                              height: SizeConfig.screenWidth * 0.4,
+                              width: SizeConfig.screenWidth * 0.3,
+                              child: Image.file(imageFileHeader!),
+                            ),
+                    ),
                   ],
                 ),
               ],
@@ -260,5 +344,31 @@ class _AddRelativeState extends State<AddRelative>
     if (newDate == null) return;
 
     setState(() => dateDeath = newDate);
+  }
+
+  _getFromGalleryFooter() async {
+    PickedFile? pickedFile = await ImagePicker().getImage(
+      source: ImageSource.gallery,
+      maxWidth: 1800,
+      maxHeight: 1800,
+    );
+    if (pickedFile != null) {
+      setState(() {
+        imageFileFooter = File(pickedFile.path);
+      });
+    }
+  }
+
+  _getFromGalleryHeader() async {
+    PickedFile? pickedFile = await ImagePicker().getImage(
+      source: ImageSource.gallery,
+      maxWidth: 1800,
+      maxHeight: 1800,
+    );
+    if (pickedFile != null) {
+      setState(() {
+        imageFileHeader = File(pickedFile.path);
+      });
+    }
   }
 }
