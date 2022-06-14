@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vinhhang/screen/cemetery/cemetery_screen.dart';
+import 'package:flutter_app_vinhhang/screen/contact/contact.dart';
 import 'package:flutter_app_vinhhang/screen/home/components/calendar.dart';
 import 'package:flutter_app_vinhhang/screen/home/home_page.dart';
 import 'package:flutter_app_vinhhang/screen/relative/relative_screen.dart';
@@ -49,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen>
           Scaffold(body: HomePage()),
           Scaffold(body: RelativeScreen()),
           Scaffold(body: CemeteryScreen()),
-          Center(child: Text("Liên hệ")),
+          Scaffold(body: ContactScreen()),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vinhhang/screen/addRelative/add_relative.dart';
 import 'package:flutter_app_vinhhang/screen/bottomnavigator/home_screen.dart';
+import 'package:flutter_app_vinhhang/screen/contact/contact.dart';
 import 'package:flutter_app_vinhhang/screen/detailGrave/grave_detail.dart';
 import 'package:flutter_app_vinhhang/screen/login/login_screen.dart';
 import 'package:flutter_app_vinhhang/screen/relative/relative_screen.dart';
@@ -35,10 +36,11 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => _defaultHome,
         '/login': (context) => const LoginScreen(),
+        '/register': (context) => const SignUpScreen(),
         '/home': (context) => const HomeScreen(),
         '/relative': (context) => const RelativeScreen(),
         '/addRelative': (context) => const AddRelative(),
-        '/register': (context) => const SignUpScreen(),
+        '/contact': (context) => const ContactScreen(),
       },
     );
   }

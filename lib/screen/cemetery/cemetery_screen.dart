@@ -107,7 +107,7 @@ class _CemeteryScreenState extends State<CemeteryScreen>
               SizedBox(
                 height: getProportionateScreenWidth(15),
               ),
-              const Header(
+              const HeaderTop(
                 text1: "Thanh Tran",
               ),
               SizedBox(

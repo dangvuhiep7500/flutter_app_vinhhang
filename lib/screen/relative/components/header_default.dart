@@ -21,7 +21,7 @@ class HeaderDefault extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Header(text1: text1),
+          HeaderTop(text1: text1),
           SizedBox(
             height: getProportionateScreenWidth(40),
           ),
@@ -42,8 +42,8 @@ class HeaderDefault extends StatelessWidget {
   }
 }
 
-class Header extends StatelessWidget {
-  const Header({
+class HeaderTop extends StatelessWidget {
+  const HeaderTop({
     Key? key,
     required this.text1,
   }) : super(key: key);
@@ -52,31 +52,41 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Row(
           children: [
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: getProportionateScreenWidth(15)),
-              child: ClipOval(
-                child: SizedBox.fromSize(
-                    size: const Size.fromRadius(20), // Image radius
-                    child: Image.asset("assets/images/facebook.png")),
-              ),
-            ),
+            const AvatarUser(),
             Text(
               text1,
               style: TextStyle(fontSize: getProportionateScreenWidth(24)),
             ),
           ],
         ),
-        IconButtonNoti(
-          numOf: 1,
-          press: () {},
-        ),
+        const IconButtonNoti(),
       ],
+    );
+  }
+}
+
+class AvatarUser extends StatelessWidget {
+  const AvatarUser({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding:
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(15)),
+      child: ClipOval(
+        child: SizedBox.fromSize(
+          size: const Size.fromRadius(20), // Image radius
+          child: Image.asset("assets/images/facebook.png"),
+        ),
+      ),
     );
   }
 }

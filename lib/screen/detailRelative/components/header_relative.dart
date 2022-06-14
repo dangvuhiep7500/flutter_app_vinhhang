@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_vinhhang/screen/notification/notification.dart';
 import 'package:flutter_app_vinhhang/screen/relative/components/icon_button_noti.dart';
 
 import '../../../utils/size_config.dart';
@@ -32,10 +33,7 @@ class Header extends StatelessWidget {
               color: Colors.red,
               fontWeight: FontWeight.w700),
         ),
-        IconButtonNoti(
-          numOf: 1,
-          press: () {},
-        ),
+        const IconButtonNoti(),
       ],
     );
   }
