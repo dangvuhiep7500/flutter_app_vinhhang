@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CardInfo extends StatelessWidget {
-  const CardInfo({
+class CardAddInfo extends StatelessWidget {
+  const CardAddInfo({
     Key? key,
     required this.text1,
     this.textField,

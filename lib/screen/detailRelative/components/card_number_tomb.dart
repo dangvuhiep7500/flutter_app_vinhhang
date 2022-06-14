@@ -12,7 +12,7 @@ class CardNumberTomb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 80),
+      padding: const EdgeInsets.only(left: 60),
       child: Row(
         children: <Widget>[
           Container(

@@ -15,7 +15,7 @@ class ButtonIcon extends StatelessWidget {
     SizeConfig2().init(context);
     return IconButton(
       padding:
-          EdgeInsets.symmetric(horizontal: SizeConfig2.safeBlockHorizontal * 5),
+          EdgeInsets.symmetric(horizontal: SizeConfig2.safeBlockHorizontal * 3),
       icon: Image.asset(urlimage),
       iconSize: SizeConfig2.screenWidth * 0.1,
       onPressed: press,

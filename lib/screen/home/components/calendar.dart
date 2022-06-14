@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vinhhang/screen/home/components/event.dart';
 import 'package:flutter_app_vinhhang/screen/login/components/button_default.dart';
+import 'package:flutter_app_vinhhang/utils/size_config.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:intl/intl.dart';
 
 import '../../../utils/theme.dart';
@@ -16,7 +16,7 @@ class Calendar extends StatefulWidget {
 
 class _CalendarState extends State<Calendar> {
   Map<DateTime, List<Event>>? selectedEvents;
-  CalendarFormat format = CalendarFormat.month;
+  CalendarFormat format = CalendarFormat.week;
   DateTime selectedDay = DateTime.now();
   DateTime focusedDay = DateTime.now();
 
@@ -62,7 +62,6 @@ class _CalendarState extends State<Calendar> {
               selectedDay = selectDay;
               focusedDay = focusDay;
             });
-            print(focusedDay);
           },
           selectedDayPredicate: (DateTime date) {
             return isSameDay(selectedDay, date);
@@ -74,13 +73,13 @@ class _CalendarState extends State<Calendar> {
           calendarStyle: CalendarStyle(
             isTodayHighlighted: true,
             selectedDecoration: BoxDecoration(
-              color: Colors.blue,
+              color: kColorGreen,
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.circular(5.0),
             ),
-            selectedTextStyle: TextStyle(color: Colors.white),
+            selectedTextStyle: const TextStyle(color: kColorWhite),
             todayDecoration: BoxDecoration(
-              color: Colors.purpleAccent,
+              color: kColorRed,
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.circular(5.0),
             ),
@@ -98,7 +97,7 @@ class _CalendarState extends State<Calendar> {
             titleCentered: true,
             formatButtonShowsNext: false,
             formatButtonDecoration: BoxDecoration(
-              color: Colors.blue,
+              color: kColorGreen,
               borderRadius: BorderRadius.circular(5.0),
             ),
             formatButtonTextStyle: const TextStyle(
@@ -110,13 +109,13 @@ class _CalendarState extends State<Calendar> {
           padding: const EdgeInsets.only(left: 10),
           child: ButtonDefault(
             text: "Thêm ghi chú",
-            color: Colors.green,
+            color: kColorGreen,
             onpress: () => showDialog(
               context: context,
               builder: (context) => AlertDialog(
                 title: const Text("Thêm sự kiện"),
-                content: Container(
-                  height: 100,
+                content: SizedBox(
+                  height: getProportionateScreenWidth(100),
                   child: Column(
                     children: [
                       TextFormField(
@@ -173,7 +172,7 @@ class _CalendarState extends State<Calendar> {
           ),
         ),
         SizedBox(
-          height: 30,
+          height: getProportionateScreenWidth(30),
         ),
         ..._getEventsfromDay(selectedDay).map(
           (Event event) => ListTile(
@@ -194,10 +193,10 @@ class _CalendarState extends State<Calendar> {
                     child: Center(
                       child: Text(
                         event.title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontFamily: 'Arial',
                           fontSize: 18,
-                          color: Colors.white,
+                          color: kColorWhite,
                           height: 1,
                         ),
                         textAlign: TextAlign.center,

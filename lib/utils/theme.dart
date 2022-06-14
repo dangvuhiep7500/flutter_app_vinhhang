@@ -8,7 +8,7 @@ const kColorGrey = Color(0xFF757575);
 const kColorYellow = Color(0xFFFFEB3B);
 const kColorCate = Color(0xFFFFECDF);
 const kColorRed = Color(0xFFFF4848);
-const kColorGreen = Color(0xFF8BC34A);
+const kColorGreen = Color(0xFF4CAF50);
 const kColorAmber = Color(0xFFFFE082);
 const kSecondaryColor = Color(0xFF979797);
 
