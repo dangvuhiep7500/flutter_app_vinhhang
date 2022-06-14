@@ -41,76 +41,68 @@ class _RelativeDetailState extends State<RelativeDetail>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(10)),
-          child: Column(
-            children: [
-              const Header(
-                text: "Chi tiết",
-              ),
-              Stack(
-                alignment: Alignment.topCenter,
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: getProportionateScreenWidth(30),
-                    ),
-                    width: double.infinity,
-                    child: Card(
-                      elevation: 30,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: getProportionateScreenWidth(10)),
+            child: Column(
+              children: [
+                const Header(
+                  text: "Chi tiết",
+                ),
+                Stack(
+                  alignment: Alignment.topCenter,
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(
+                        top: getProportionateScreenWidth(30),
                       ),
-                      color: kColorWhite,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          CardHeader(
-                            textRelationship: widget.dear.relationship,
-                            textName: widget.dear.name,
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const CardInfo(
-                            text1: "Giới tính",
-                            text2: "N?",
-                            number: 0.15,
-                          ),
-                          const CardInfo(
-                            text1: "Sinh ngày",
-                            text2: "8/8/1900",
-                            number: 0.15,
-                          ),
-                          const CardInfo(
-                            text1: "Nhằm ngày",
-                            text2: "8/8/1900",
-                            number: 0.15,
-                          ),
-                          const CardInfo(
-                            text1: "Mất ngày",
-                            text2: "8/8/1900",
-                            number: 0.15,
-                          ),
-                          const CardInfo(
-                            text1: "Nhằm ngày",
-                            text2: "8/8/1900",
-                            number: 0.15,
-                          ),
-                          const CardInfo(
-                            text1: "Hưởng dương",
-                            text2: "8/8/1900",
-                            number: 0.15,
-                          ),
-                          SizedBox(
-                            height: getProportionateScreenWidth(10),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                left: getProportionateScreenWidth(10)),
-                            child: SizedBox(
+                      width: double.infinity,
+                      child: Card(
+                        elevation: 30,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        color: kColorWhite,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            CardHeader(
+                              textRelationship: widget.dear.relationship,
+                              textName: widget.dear.name,
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            const CardInfo(
+                              text1: "Giới tính",
+                              text2: "N?",
+                            ),
+                            const CardInfo(
+                              text1: "Sinh ngày",
+                              text2: "8/8/1900",
+                            ),
+                            const CardInfo(
+                              text1: "Nhằm ngày",
+                              text2: "8/8/1900",
+                            ),
+                            const CardInfo(
+                              text1: "Mất ngày",
+                              text2: "8/8/1900",
+                            ),
+                            const CardInfo(
+                              text1: "Nhằm ngày",
+                              text2: "8/8/1900",
+                            ),
+                            const CardInfo(
+                              text1: "Hưởng dương",
+                              text2: "8/8/1900",
+                            ),
+                            SizedBox(
+                              height: getProportionateScreenWidth(10),
+                            ),
+                            SizedBox(
                               width: MediaQuery.of(context).size.width * 0.5,
                               child: Text(
                                 "Mộ phần",
@@ -119,45 +111,48 @@ class _RelativeDetailState extends State<RelativeDetail>
                                     fontWeight: FontWeight.w700),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: getProportionateScreenWidth(10),
-                          ),
-                          const CardInfo(
-                            text1: "Tên nghĩa trang",
-                            text2: "abc",
-                            number: 0.05,
-                          ),
-                          SizedBox(
-                            height: getProportionateScreenWidth(10),
-                          ),
-                          const CardNumberTomb(
-                            text1: 5,
-                            text2: "A1",
-                          ),
-                          SizedBox(
-                            height: getProportionateScreenWidth(10),
-                          ),
-                          const CardInfo(
-                            text1: "Ngày đăng kí",
-                            text2: "9/9/1900",
-                            number: 0.05,
-                          ),
-                          CardLocalMap(
-                            onpress: () {},
-                          ),
-                          SizedBox(
-                            height: getProportionateScreenWidth(20),
-                          ),
-                          CardImageFooter(image: widget.dear.image),
-                        ],
+                            SizedBox(
+                              height: getProportionateScreenWidth(10),
+                            ),
+                            const CardInfo(
+                              text1: "Tên nghĩa trang",
+                              text2: "abc",
+                              number: 0.05,
+                            ),
+                            SizedBox(
+                              height: getProportionateScreenWidth(10),
+                            ),
+                            const CardNumberTomb(
+                              text1: 5,
+                              text2: "A1",
+                            ),
+                            SizedBox(
+                              height: getProportionateScreenWidth(10),
+                            ),
+                            const CardInfo(
+                              text1: "Ngày đăng kí",
+                              text2: "9/9/1900",
+                              number: 0.05,
+                            ),
+                            CardLocalMap(
+                              onpress: () {},
+                            ),
+                            CardImageFooter(
+                              image: widget.dear.image,
+                              left: 60,
+                              height: 100,
+                              width: 100,
+                              borderRadius: 10,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  CardImageHeader(image: widget.dear.image),
-                ],
-              ),
-            ],
+                    CardImageHeader(image: widget.dear.image),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

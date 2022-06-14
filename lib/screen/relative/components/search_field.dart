@@ -52,7 +52,7 @@ class Search extends StatelessWidget {
       height: getProportionateScreenWidth(40),
       decoration: BoxDecoration(
         color: kColorBlack.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(5),
       ),
       child: TextField(
         onChanged: onpress,

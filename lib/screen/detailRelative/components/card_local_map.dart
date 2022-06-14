@@ -12,7 +12,7 @@ class CardLocalMap extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          left: getProportionateScreenWidth(80),
+          left: getProportionateScreenWidth(60),
           bottom: getProportionateScreenWidth(10),
           top: getProportionateScreenWidth(7)),
       child: Row(

@@ -188,7 +188,7 @@ class _AddRelativeState extends State<AddRelative>
                               SizedBox(
                                 height: getProportionateScreenWidth(10),
                               ),
-                              const CardInfo(
+                              const CardAddInfo(
                                 text1: "Tên nghĩa trang:",
                                 textField: CardHeaderTextField(
                                   height: 25,

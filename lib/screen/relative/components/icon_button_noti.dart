@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_vinhhang/screen/notification/notification.dart';
 
 import '../../../utils/size_config.dart';
 import '../../../utils/theme.dart';
@@ -6,15 +7,16 @@ import '../../../utils/theme.dart';
 class IconButtonNoti extends StatelessWidget {
   const IconButtonNoti({
     Key? key,
-    this.numOf = 0,
-    required this.press,
+    this.numOf = 1,
   }) : super(key: key);
   final int numOf;
-  final GestureTapCallback press;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: press,
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const NotificationScreen()));
+      },
       borderRadius: BorderRadius.circular(50),
       child: Stack(
         clipBehavior: Clip.none,

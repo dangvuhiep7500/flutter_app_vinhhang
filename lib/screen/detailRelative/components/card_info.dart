@@ -1,33 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_vinhhang/utils/size_config.dart';
 
 class CardInfo extends StatelessWidget {
   const CardInfo({
     Key? key,
     required this.text1,
     required this.text2,
-    required this.number,
+    this.number = 0.15,
+    this.left = 60,
+    this.width = 120,
+    this.fontSizetext1 = 15,
+    this.fontSizetext2 = 15,
+    this.widthtext2 = 100,
   }) : super(key: key);
   final String text1;
   final String text2;
   final double number;
+  final double left;
+  final double width;
+  final double widthtext2;
+  final double fontSizetext1;
+  final double fontSizetext2;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 80),
+      padding: EdgeInsets.only(left: left),
       child: Row(
         children: [
-          Container(
-            width: MediaQuery.of(context).size.width * 0.25,
-            child: Text(text1),
+          SizedBox(
+            width: getProportionateScreenWidth(width),
+            child: Text(
+              text1,
+              style: TextStyle(fontSize: fontSizetext1),
+            ),
           ),
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width * number,
-            child: Text(":"),
+            child: const Text(":"),
           ),
-          Container(
-            width: MediaQuery.of(context).size.width * 0.3,
-            child: Text(text2),
+          SizedBox(
+            width: getProportionateScreenWidth(widthtext2),
+            child: Text(
+              text2,
+              style: TextStyle(fontSize: fontSizetext2),
+            ),
           ),
         ],
       ),
