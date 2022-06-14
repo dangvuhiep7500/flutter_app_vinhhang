@@ -88,37 +88,43 @@ class _BodyState extends State<Body> {
                   ButtonLogin(
                     text: "Đăng nhập",
                     press: () {
-                      if (validateAndSave()) {
-                        setState(() {
-                          isApiCallProcess = true;
-                        });
-                        LoginRequestModel model = LoginRequestModel(
-                          username: userName.text,
-                          password: password.text,
-                        );
-                        APIService.login(model).then(
-                          (response) {
-                            setState(() {
-                              isApiCallProcess = false;
-                            });
-                            if (response == true) {
-                              Navigator.pushNamedAndRemoveUntil(
-                                context,
-                                '/home',
-                                (route) => false,
-                              );
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: const Text(
-                                      'Tài khoản hoặc mật khẩu không đúng'),
-                                  backgroundColor: Colors.red.shade300,
-                                ),
-                              );
-                            }
-                          },
-                        );
-                      }
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        '/home',
+                        (route) => false,
+                      );
+                      // Call API Login
+                      // if (validateAndSave()) {
+                      //   setState(() {
+                      //     isApiCallProcess = true;
+                      //   });
+                      //   LoginRequestModel model = LoginRequestModel(
+                      //     username: userName.text,
+                      //     password: password.text,
+                      //   );
+                      //   APIService.login(model).then(
+                      //     (response) {
+                      //       setState(() {
+                      //         isApiCallProcess = false;
+                      //       });
+                      //       if (response == true) {
+                      //         Navigator.pushNamedAndRemoveUntil(
+                      //           context,
+                      //           '/home',
+                      //           (route) => false,
+                      //         );
+                      //       } else {
+                      //         ScaffoldMessenger.of(context).showSnackBar(
+                      //           SnackBar(
+                      //             content: const Text(
+                      //                 'Tài khoản hoặc mật khẩu không đúng'),
+                      //             backgroundColor: Colors.red.shade300,
+                      //           ),
+                      //         );
+                      //       }
+                      //     },
+                      //   );
+                      // }
                     },
                   ),
                   SizedBox(

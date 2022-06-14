@@ -8,7 +8,7 @@ import 'package:flutter_app_vinhhang/screen/relative/relative_screen.dart';
 import 'package:flutter_app_vinhhang/screen/signup/signup_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-Widget _defaultHome = const HomeScreen();
+Widget _defaultHome = const LoginScreen();
 void main() {
   runApp(const MyApp());
 }
