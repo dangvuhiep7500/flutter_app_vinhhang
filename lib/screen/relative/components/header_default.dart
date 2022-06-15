@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vinhhang/screen/relative/components/icon_button_noti.dart';
-import 'package:flutter_app_vinhhang/screen/relative/components/search_field.dart';
 
 import '../../../utils/size_config.dart';
 import '../../../utils/theme.dart';
@@ -10,9 +9,11 @@ class HeaderDefault extends StatelessWidget {
     Key? key,
     required this.text1,
     required this.text2,
+    required this.onpress,
   }) : super(key: key);
   final String text1;
   final String text2;
+  final GestureTapCallback onpress;
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -22,7 +23,7 @@ class HeaderDefault extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HeaderTop(text1: text1),
+          HeaderTop(text1: text1, onpress: onpress),
           SizedBox(
             height: getProportionateScreenWidth(40),
           ),
@@ -44,8 +45,9 @@ class HeaderTop extends StatelessWidget {
   const HeaderTop({
     Key? key,
     required this.text1,
+    required this.onpress,
   }) : super(key: key);
-
+  final GestureTapCallback onpress;
   final String text1;
 
   @override
@@ -56,7 +58,7 @@ class HeaderTop extends StatelessWidget {
       children: [
         Row(
           children: [
-            const AvatarUser(),
+            AvatarUser(onpress: onpress),
             Text(
               text1,
               style: PrimaryFont.medium(24).copyWith(color: kColorBlack),
@@ -72,17 +74,21 @@ class HeaderTop extends StatelessWidget {
 class AvatarUser extends StatelessWidget {
   const AvatarUser({
     Key? key,
+    required this.onpress,
   }) : super(key: key);
-
+  final GestureTapCallback onpress;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding:
           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(15)),
-      child: ClipOval(
-        child: SizedBox.fromSize(
-          size: const Size.fromRadius(20), // Image radius
-          child: Image.asset("assets/images/facebook.png"),
+      child: GestureDetector(
+        onTap: onpress,
+        child: ClipOval(
+          child: SizedBox.fromSize(
+            size: const Size.fromRadius(20), // Image radius
+            child: Image.asset("assets/images/facebook.png"),
+          ),
         ),
       ),
     );

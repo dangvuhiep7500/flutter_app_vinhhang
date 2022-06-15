@@ -90,7 +90,7 @@ class _BodyState extends State<Body> {
                     press: () {
                       Navigator.pushNamedAndRemoveUntil(
                         context,
-                        '/home',
+                        '/religion',
                         (route) => false,
                       );
                       // Call API Login

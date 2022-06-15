@@ -5,7 +5,11 @@ import '../../../utils/theme.dart';
 class InlineCombackLogin extends StatelessWidget {
   const InlineCombackLogin({
     Key? key,
+    required this.text,
+    required this.onpress,
   }) : super(key: key);
+  final String text;
+  final GestureTapCallback onpress;
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +24,12 @@ class InlineCombackLogin extends StatelessWidget {
           color: kColorGrey,
         )),
         TextButton(
-            child: Text("Trở lại",
-                style: PrimaryFont.medium(20).copyWith(color: kColorGrey)),
-            onPressed: () {
-              Navigator.pushNamed(context, '/login');
-            }),
+            child: Text(text,
+                style: PrimaryFont.regular(18).copyWith(color: kColorBlack)),
+            // onPressed: () {
+            //   Navigator.pushNamed(context, '/login');
+            // }),
+            onPressed: onpress),
         const Expanded(
             child: Divider(
           indent: 10.0,

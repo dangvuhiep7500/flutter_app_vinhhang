@@ -98,7 +98,9 @@ class _ContactScreenState extends State<ContactScreen>
               ),
               Row(
                 children: [
-                  const AvatarUser(),
+                  AvatarUser(
+                    onpress: () {},
+                  ),
                   Search(onpress: (value) {}, text: "Tìm kiếm", width: 250)
                 ],
               ),

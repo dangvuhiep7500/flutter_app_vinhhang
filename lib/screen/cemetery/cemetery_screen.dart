@@ -5,6 +5,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_app_vinhhang/screen/detailCemetery/cemetery_detail.dart';
 import 'package:flutter_app_vinhhang/screen/login/components/button_default.dart';
+import 'package:flutter_app_vinhhang/screen/navigation_drawer/navigation_drawer_widget.dart';
 import 'package:flutter_app_vinhhang/screen/relative/components/header_default.dart';
 import 'package:flutter_app_vinhhang/screen/relative/components/search_field.dart';
 import 'package:intl/intl.dart';
@@ -79,7 +80,7 @@ class _CemeteryScreenState extends State<CemeteryScreen>
     with SingleTickerProviderStateMixin {
   final Data _data = Data();
   late AnimationController _controller;
-
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   void initState() {
     super.initState();
@@ -96,6 +97,8 @@ class _CemeteryScreenState extends State<CemeteryScreen>
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: NavigationDrawerWidget(),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(
@@ -107,8 +110,11 @@ class _CemeteryScreenState extends State<CemeteryScreen>
               SizedBox(
                 height: getProportionateScreenWidth(15),
               ),
-              const HeaderTop(
+              HeaderTop(
                 text1: "Thanh Tran",
+                onpress: () {
+                  _scaffoldKey.currentState?.openDrawer();
+                },
               ),
               SizedBox(
                 height: getProportionateScreenWidth(15),
