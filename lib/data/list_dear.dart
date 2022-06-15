@@ -12,7 +12,7 @@ class AssetListDear extends ListDear {
   @override
   Future<List<Dear>> load() async {
     if (kDebugMode) {
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 1));
     }
     final jsonContent = await rootBundle.loadString("mock/dears/listdear.json");
     final List<dynamic> jsonData = jsonDecode(jsonContent);

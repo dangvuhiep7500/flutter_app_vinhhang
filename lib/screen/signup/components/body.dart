@@ -8,6 +8,7 @@ import 'package:flutter_app_vinhhang/services/api_service.dart';
 import 'package:snippet_coder_utils/ProgressHUD.dart';
 
 import '../../../utils/size_config.dart';
+import '../../../utils/theme.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -50,7 +51,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
               children: [
                 const ImageTop(),
                 SizedBox(
-                  height: SizeConfig2.screenHeight * 0.05,
+                  height: getProportionateScreenWidth(40),
                 ),
                 Column(
                   children: [
@@ -65,7 +66,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                       },
                     ),
                     SizedBox(
-                      height: SizeConfig2.screenHeight * 0.0125,
+                      height: getProportionateScreenWidth(10),
                     ),
                     InputField(
                       text: "Mật khẩu",
@@ -96,23 +97,19 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                       },
                     ),
                     SizedBox(
-                      height: SizeConfig2.screenHeight * 0.025,
+                      height: getProportionateScreenWidth(20),
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.green,
-                        onPrimary: Colors.white,
+                        primary: kColorGreen,
+                        onPrimary: kColorWhite,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
-                      child: const Text(
-                        "Đăng ký tài khoản",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.normal,
-                            fontSize: 16),
-                      ),
+                      child: Text("Đăng ký tài khoản",
+                          style: PrimaryFont.medium(16)
+                              .copyWith(color: kColorWhite)),
                       onPressed: () {
                         if (validateAndSave()) {
                           setState(() {
@@ -156,7 +153,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                       },
                     ),
                     SizedBox(
-                      height: SizeConfig2.screenHeight * 0.025,
+                      height: getProportionateScreenWidth(20),
                     ),
                     const InlineCombackLogin(),
                   ],

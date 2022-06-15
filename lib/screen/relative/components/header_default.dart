@@ -3,6 +3,7 @@ import 'package:flutter_app_vinhhang/screen/relative/components/icon_button_noti
 import 'package:flutter_app_vinhhang/screen/relative/components/search_field.dart';
 
 import '../../../utils/size_config.dart';
+import '../../../utils/theme.dart';
 
 class HeaderDefault extends StatelessWidget {
   const HeaderDefault({
@@ -28,10 +29,7 @@ class HeaderDefault extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: getProportionateScreenWidth(20)),
-            child: Text(
-              "$text2 $text1",
-              style: TextStyle(fontSize: getProportionateScreenWidth(25)),
-            ),
+            child: Text("$text2 $text1", style: PrimaryFont.regular(25)),
           ),
           SizedBox(
             height: getProportionateScreenWidth(20),
@@ -61,7 +59,7 @@ class HeaderTop extends StatelessWidget {
             const AvatarUser(),
             Text(
               text1,
-              style: TextStyle(fontSize: getProportionateScreenWidth(24)),
+              style: PrimaryFont.medium(24).copyWith(color: kColorBlack),
             ),
           ],
         ),

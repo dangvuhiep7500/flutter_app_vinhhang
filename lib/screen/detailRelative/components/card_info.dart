@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vinhhang/utils/size_config.dart';
 
+import '../../../utils/theme.dart';
+
 class CardInfo extends StatelessWidget {
   const CardInfo({
     Key? key,
@@ -32,7 +34,8 @@ class CardInfo extends StatelessWidget {
             width: getProportionateScreenWidth(width),
             child: Text(
               text1,
-              style: TextStyle(fontSize: fontSizetext1),
+              style: PrimaryFont.medium(fontSizetext1)
+                  .copyWith(color: kColorBlack),
             ),
           ),
           SizedBox(
@@ -43,7 +46,8 @@ class CardInfo extends StatelessWidget {
             width: getProportionateScreenWidth(widthtext2),
             child: Text(
               text2,
-              style: TextStyle(fontSize: fontSizetext2),
+              style: PrimaryFont.regular(fontSizetext2)
+                  .copyWith(color: kColorBlack),
             ),
           ),
         ],

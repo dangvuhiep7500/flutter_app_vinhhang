@@ -113,7 +113,10 @@ class _CalendarState extends State<Calendar> {
             onpress: () => showDialog(
               context: context,
               builder: (context) => AlertDialog(
-                title: const Text("Thêm sự kiện"),
+                title: Text(
+                  "Thêm sự kiện",
+                  style: PrimaryFont.medium(20).copyWith(color: kColorWhite),
+                ),
                 content: SizedBox(
                   height: getProportionateScreenWidth(100),
                   child: Column(

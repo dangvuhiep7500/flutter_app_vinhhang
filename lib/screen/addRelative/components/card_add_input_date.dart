@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_vinhhang/utils/size_config.dart';
+
+import '../../../utils/theme.dart';
 
 class InputDate extends StatelessWidget {
   const InputDate({
@@ -12,20 +15,24 @@ class InputDate extends StatelessWidget {
   final GestureTapCallback onpress;
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Padding(
-      padding: EdgeInsets.only(left: 60),
+      padding: EdgeInsets.only(left: getProportionateScreenWidth(60)),
       child: Row(
         children: [
-          Container(
-            width: MediaQuery.of(context).size.width * 0.25,
-            child: Text(text1),
+          SizedBox(
+            width: getProportionateScreenWidth(90),
+            child: Text(
+              text1,
+              style: PrimaryFont.medium(15).copyWith(color: kColorBlack),
+            ),
           ),
           TextButton(
               onPressed: onpress,
               child: FittedBox(
                 child: Text(
                   text2,
-                  style: TextStyle(color: Colors.black),
+                  style: PrimaryFont.medium(15).copyWith(color: kColorBlack),
                 ),
               ))
         ],

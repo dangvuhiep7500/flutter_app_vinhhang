@@ -59,8 +59,10 @@ class _CemeteryDetailState extends State<CemeteryDetail>
                         width: MediaQuery.of(context).size.width * 0.05,
                         child: const Icon(Icons.location_on)),
                   ),
-                  const Text("Cần Giuộc, Long An",
-                      style: TextStyle(color: kColorBlack, fontSize: 20)),
+                  Text(
+                    "Cần Giuộc, Long An",
+                    style: PrimaryFont.light(20).copyWith(color: kColorBlack),
+                  ),
                 ],
               ),
               SizedBox(
@@ -73,15 +75,15 @@ class _CemeteryDetailState extends State<CemeteryDetail>
                       left: 20, right: 20, bottom: 20, top: 10),
                   child: Column(
                     children: [
-                      const Text(
+                      Text(
                         "Nghĩa trang",
-                        style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.w700),
+                        style:
+                            PrimaryFont.bold(24).copyWith(color: kColorBlack),
                       ),
-                      const Text(
+                      Text(
                         "Sài Gòn Thiên Phúc",
-                        style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.w700),
+                        style:
+                            PrimaryFont.bold(24).copyWith(color: kColorBlack),
                       ),
                       Container(
                         height: SizeConfig.screenWidth * 0.5,
@@ -97,47 +99,47 @@ class _CemeteryDetailState extends State<CemeteryDetail>
                   ),
                 ),
               ),
-              const CardImageFooter(
+              CardImageFooter(
                 image: "assets/images/anh3.jpg",
-                height: 65,
-                width: 80,
-                left: 10,
+                height: getProportionateScreenHeight(65),
+                width: getProportionateScreenWidth(80),
+                left: getProportionateScreenWidth(10),
                 borderRadius: 0,
               ),
-              const CardInfo(
+              CardInfo(
                 text1: "Địa chỉ",
                 text2: "",
-                left: 25,
-                width: 70,
+                left: getProportionateScreenWidth(25),
+                width: getProportionateScreenWidth(70),
               ),
               Padding(
                 padding: EdgeInsets.all(getProportionateScreenWidth(5)),
-                child: const Text(
+                child: Text(
                   "Ấp Long Phú Kim, Tân An,\nHuyện Cần Giờ, Tỉnh Long An",
-                  style: TextStyle(fontSize: 16),
+                  style: PrimaryFont.light(16).copyWith(color: kColorBlack),
                 ),
               ),
               SizedBox(
                 height: getProportionateScreenWidth(10),
               ),
-              const CardInfo(
+              CardInfo(
                 text1: "Quản lý",
                 text2: "Nguyễn Văn A",
                 number: 0.1,
-                left: 25,
-                width: 70,
+                left: getProportionateScreenWidth(25),
+                width: getProportionateScreenWidth(70),
               ),
               SizedBox(
                 height: getProportionateScreenWidth(10),
               ),
               Row(
                 children: [
-                  const CardInfo(
+                  CardInfo(
                     text1: "Điện Thoại",
                     text2: "0123456789",
                     number: 0.1,
-                    left: 25,
-                    width: 70,
+                    left: getProportionateScreenWidth(25),
+                    width: getProportionateScreenWidth(70),
                   ),
                   ButtonIcon(
                     press: () {},

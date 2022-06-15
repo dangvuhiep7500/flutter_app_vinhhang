@@ -19,7 +19,10 @@ class CardAddNumberTomb extends StatelessWidget {
       padding: EdgeInsets.only(left: left),
       child: Row(
         children: [
-          Text(text),
+          Text(
+            text,
+            style: PrimaryFont.medium(15).copyWith(color: kColorBlack),
+          ),
           SizedBox(
             height: getProportionateScreenWidth(25),
             width: getProportionateScreenWidth(80),

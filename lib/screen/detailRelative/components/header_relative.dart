@@ -3,6 +3,7 @@ import 'package:flutter_app_vinhhang/screen/notification/notification.dart';
 import 'package:flutter_app_vinhhang/screen/relative/components/icon_button_noti.dart';
 
 import '../../../utils/size_config.dart';
+import '../../../utils/theme.dart';
 
 class Header extends StatelessWidget {
   const Header({
@@ -28,10 +29,7 @@ class Header extends StatelessWidget {
         ),
         Text(
           text,
-          style: TextStyle(
-              fontSize: getProportionateScreenWidth(24),
-              color: Colors.red,
-              fontWeight: FontWeight.w700),
+          style: PrimaryFont.bold(24).copyWith(color: kColorRed),
         ),
         const IconButtonNoti(),
       ],

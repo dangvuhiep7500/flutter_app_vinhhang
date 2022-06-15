@@ -3,6 +3,7 @@ import 'package:flutter_app_vinhhang/screen/detailRelative/components/header_rel
 import 'package:flutter_app_vinhhang/screen/relative/components/search_field.dart';
 
 import '../../utils/size_config.dart';
+import '../../utils/theme.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({Key? key}) : super(key: key);
@@ -86,7 +87,7 @@ class _NotificationScreenState extends State<NotificationScreen>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Header(
+            const Header(
               text: "",
             ),
             SizedBox(
@@ -97,27 +98,30 @@ class _NotificationScreenState extends State<NotificationScreen>
               children: [
                 Text(
                   "Thông báo",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                  style: PrimaryFont.bold(24).copyWith(color: kColorBlack),
                 ),
-                Search(onpress: (value) {}, text: "Tìm kiếm", width: 0.6),
+                Search(
+                    onpress: (value) {},
+                    text: "Tìm kiếm",
+                    width: getProportionateScreenWidth(220)),
               ],
             ),
             SizedBox(
               height: getProportionateScreenWidth(10),
             ),
             Padding(
-              padding:
-                  EdgeInsets.only(left: 10, right: 16, top: 10, bottom: 10),
+              padding: const EdgeInsets.only(
+                  left: 10, right: 16, top: 10, bottom: 10),
               child: Text(
                 "Mới",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                style: PrimaryFont.bold(20).copyWith(color: kColorBlack),
               ),
             ),
             GestureDetector(
               onTap: () {},
               child: Container(
-                padding:
-                    EdgeInsets.only(left: 10, right: 16, top: 10, bottom: 10),
+                padding: const EdgeInsets.only(
+                    left: 10, right: 16, top: 10, bottom: 10),
                 child: Row(
                   children: <Widget>[
                     Expanded(
@@ -131,8 +135,8 @@ class _NotificationScreenState extends State<NotificationScreen>
                               ),
                             ),
                           ),
-                          const SizedBox(
-                            width: 16,
+                          SizedBox(
+                            width: getProportionateScreenWidth(15),
                           ),
                           Expanded(
                             child: Container(
@@ -142,18 +146,15 @@ class _NotificationScreenState extends State<NotificationScreen>
                                 children: <Widget>[
                                   Text(
                                     "Phần mộ của cụ A",
-                                    style: TextStyle(fontSize: 16),
+                                    style: PrimaryFont.regular(20)
+                                        .copyWith(color: kColorGrey),
                                   ),
                                   SizedBox(
-                                    height: 6,
+                                    height: getProportionateScreenWidth(10),
                                   ),
-                                  Text(
-                                    "đá được lau sạch",
-                                    style: TextStyle(
-                                        fontSize: 13,
-                                        color: Colors.grey.shade600,
-                                        fontWeight: FontWeight.bold),
-                                  ),
+                                  Text("đã được lau sạch",
+                                      style: PrimaryFont.bold(15)
+                                          .copyWith(color: kColorBlack)),
                                 ],
                               ),
                             ),
@@ -166,11 +167,11 @@ class _NotificationScreenState extends State<NotificationScreen>
               ),
             ),
             Padding(
-              padding:
-                  EdgeInsets.only(left: 10, right: 16, top: 10, bottom: 10),
+              padding: const EdgeInsets.only(
+                  left: 10, right: 16, top: 10, bottom: 10),
               child: Text(
                 "Trước đó",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                style: PrimaryFont.bold(20).copyWith(color: kColorBlack),
               ),
             ),
             Flexible(
@@ -181,7 +182,7 @@ class _NotificationScreenState extends State<NotificationScreen>
                   return GestureDetector(
                     onTap: () {},
                     child: Container(
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                           left: 10, right: 16, top: 10, bottom: 10),
                       child: Row(
                         children: <Widget>[
@@ -197,8 +198,8 @@ class _NotificationScreenState extends State<NotificationScreen>
                                     ),
                                   ),
                                 ),
-                                const SizedBox(
-                                  width: 16,
+                                SizedBox(
+                                  width: getProportionateScreenWidth(16),
                                 ),
                                 Expanded(
                                   child: Container(
@@ -209,18 +210,16 @@ class _NotificationScreenState extends State<NotificationScreen>
                                       children: <Widget>[
                                         Text(
                                           "${_data.getTitle(index)}",
-                                          style: TextStyle(fontSize: 16),
+                                          style: PrimaryFont.regular(20)
+                                              .copyWith(color: kColorGrey),
                                         ),
                                         SizedBox(
-                                          height: 6,
+                                          height:
+                                              getProportionateScreenWidth(10),
                                         ),
-                                        Text(
-                                          "${_data.getMessageText(index)}",
-                                          style: TextStyle(
-                                              fontSize: 13,
-                                              color: Colors.grey.shade600,
-                                              fontWeight: FontWeight.bold),
-                                        ),
+                                        Text("${_data.getMessageText(index)}",
+                                            style: PrimaryFont.bold(15)
+                                                .copyWith(color: kColorBlack)),
                                       ],
                                     ),
                                   ),

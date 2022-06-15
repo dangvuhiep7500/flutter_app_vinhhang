@@ -89,7 +89,8 @@ class _AddRelativeState extends State<AddRelative>
                         ),
                         color: kColorWhite,
                         child: Padding(
-                          padding: const EdgeInsets.only(top: 130),
+                          padding: EdgeInsets.only(
+                              top: getProportionateScreenWidth(120)),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
@@ -111,17 +112,20 @@ class _AddRelativeState extends State<AddRelative>
                               const SizedBox(
                                 height: 20,
                               ),
-                              Container(
-                                height: 25,
+                              SizedBox(
+                                height: getProportionateScreenHeight(25),
                                 child: Padding(
-                                  padding: EdgeInsets.only(left: 60),
+                                  padding: EdgeInsets.only(
+                                      left: getProportionateScreenWidth(60)),
                                   child: Row(
                                     children: [
                                       Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.25,
-                                        child: Text("Giới tính"),
+                                        width: getProportionateScreenWidth(80),
+                                        child: Text(
+                                          "Giới tính",
+                                          style: PrimaryFont.medium(15)
+                                              .copyWith(color: kColorBlack),
+                                        ),
                                       ),
                                       Radio(
                                         value: 1,
@@ -132,7 +136,11 @@ class _AddRelativeState extends State<AddRelative>
                                           });
                                         },
                                       ),
-                                      Text("Nam"),
+                                      Text(
+                                        "Nam",
+                                        style: PrimaryFont.regular(15)
+                                            .copyWith(color: kColorBlack),
+                                      ),
                                       Radio(
                                         value: 2,
                                         groupValue: _value,
@@ -142,13 +150,17 @@ class _AddRelativeState extends State<AddRelative>
                                           });
                                         },
                                       ),
-                                      Text("Nữ"),
+                                      Text(
+                                        "Nữ",
+                                        style: PrimaryFont.regular(15)
+                                            .copyWith(color: kColorBlack),
+                                      ),
                                     ],
                                   ),
                                 ),
                               ),
                               SizedBox(
-                                height: 35,
+                                height: getProportionateScreenWidth(35),
                                 child: InputDate(
                                   text1: "Sinh ngày",
                                   text2: getTextBirth(),
@@ -158,7 +170,7 @@ class _AddRelativeState extends State<AddRelative>
                                 ),
                               ),
                               SizedBox(
-                                height: 35,
+                                height: getProportionateScreenWidth(35),
                                 child: InputDate(
                                   text1: "Mất ngày",
                                   text2: getTextDeath(),
@@ -178,33 +190,31 @@ class _AddRelativeState extends State<AddRelative>
                                       MediaQuery.of(context).size.width * 0.5,
                                   child: Text(
                                     "Mộ phần",
-                                    style: TextStyle(
-                                        fontSize:
-                                            getProportionateScreenWidth(20),
-                                        fontWeight: FontWeight.w700),
+                                    style: PrimaryFont.bold(20)
+                                        .copyWith(color: kColorBlack),
                                   ),
                                 ),
                               ),
                               SizedBox(
                                 height: getProportionateScreenWidth(10),
                               ),
-                              const CardAddInfo(
+                              CardAddInfo(
                                 text1: "Tên nghĩa trang:",
                                 textField: CardHeaderTextField(
-                                  height: 25,
-                                  horizontal: 15,
+                                  height: getProportionateScreenHeight(25),
+                                  horizontal: getProportionateScreenWidth(15),
                                 ),
                               ),
                               SizedBox(
                                 height: getProportionateScreenWidth(10),
                               ),
                               Row(
-                                children: const [
-                                  CardAddNumberTomb(
+                                children: [
+                                  const CardAddNumberTomb(
                                     text: "Số ô:",
                                   ),
                                   CardAddNumberTomb(
-                                    left: 40,
+                                    left: getProportionateScreenWidth(40),
                                     text: "Số lô:",
                                   ),
                                 ],
@@ -216,14 +226,11 @@ class _AddRelativeState extends State<AddRelative>
                                 padding: EdgeInsets.only(
                                     left: getProportionateScreenWidth(10)),
                                 child: SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.5,
+                                  width: getProportionateScreenWidth(180),
                                   child: Text(
                                     "Di ảnh",
-                                    style: TextStyle(
-                                        fontSize:
-                                            getProportionateScreenWidth(20),
-                                        fontWeight: FontWeight.w700),
+                                    style: PrimaryFont.bold(20)
+                                        .copyWith(color: kColorBlack),
                                   ),
                                 ),
                               ),
@@ -232,15 +239,17 @@ class _AddRelativeState extends State<AddRelative>
                                 alignment: Alignment.centerLeft,
                                 child: imageFileFooter == null
                                     ? Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 40),
+                                        padding: EdgeInsets.only(
+                                            bottom: getProportionateScreenWidth(
+                                                40)),
                                         child: IconButton(
                                           onPressed: () {
                                             _getFromGalleryFooter();
                                           },
-                                          icon: const Icon(
+                                          icon: Icon(
                                             Icons.add_photo_alternate,
-                                            size: 80,
+                                            size:
+                                                getProportionateScreenWidth(80),
                                           ),
                                         ),
                                       )

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/size_config.dart';
+import '../../../utils/theme.dart';
+
 class CardNumberTomb extends StatelessWidget {
   const CardNumberTomb({
     Key? key,
@@ -11,17 +14,24 @@ class CardNumberTomb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Padding(
-      padding: const EdgeInsets.only(left: 60),
+      padding: EdgeInsets.only(left: getProportionateScreenWidth(60)),
       child: Row(
         children: <Widget>[
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width * 0.25,
-            child: Text("Số ô: $text1"),
+            child: Text(
+              "Số ô: $text1",
+              style: PrimaryFont.medium(15).copyWith(color: kColorBlack),
+            ),
           ),
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width * 0.4,
-            child: Text("Số Lô: $text2"),
+            child: Text(
+              "Số Lô: $text2",
+              style: PrimaryFont.medium(15).copyWith(color: kColorBlack),
+            ),
           ),
         ],
       ),

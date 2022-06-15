@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/theme.dart';
+
 class CardAddInfo extends StatelessWidget {
   const CardAddInfo({
     Key? key,
@@ -14,8 +16,11 @@ class CardAddInfo extends StatelessWidget {
       padding: const EdgeInsets.only(left: 60),
       child: Row(
         children: [
-          Text(text1),
-          Container(
+          Text(
+            text1,
+            style: PrimaryFont.medium(15).copyWith(color: kColorBlack),
+          ),
+          SizedBox(
             width: MediaQuery.of(context).size.width * 0.4,
             child: textField,
           ),

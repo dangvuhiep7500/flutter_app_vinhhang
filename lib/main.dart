@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_vinhhang/screen/addRelative/add_relative.dart';
 import 'package:flutter_app_vinhhang/screen/bottomnavigator/home_screen.dart';
 import 'package:flutter_app_vinhhang/screen/contact/contact.dart';
-import 'package:flutter_app_vinhhang/screen/detailGrave/grave_detail.dart';
 import 'package:flutter_app_vinhhang/screen/login/login_screen.dart';
 import 'package:flutter_app_vinhhang/screen/relative/relative_screen.dart';
 import 'package:flutter_app_vinhhang/screen/signup/signup_screen.dart';

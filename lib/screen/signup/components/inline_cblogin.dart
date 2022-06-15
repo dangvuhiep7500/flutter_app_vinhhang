@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/theme.dart';
+
 class InlineCombackLogin extends StatelessWidget {
   const InlineCombackLogin({
     Key? key,
@@ -15,13 +17,11 @@ class InlineCombackLogin extends StatelessWidget {
           indent: 10.0,
           endIndent: 10.0,
           thickness: 1,
-          color: Colors.grey,
+          color: kColorGrey,
         )),
         TextButton(
-            child: const Text(
-              "Trở lại",
-              style: TextStyle(color: Colors.grey),
-            ),
+            child: Text("Trở lại",
+                style: PrimaryFont.medium(20).copyWith(color: kColorGrey)),
             onPressed: () {
               Navigator.pushNamed(context, '/login');
             }),
@@ -30,7 +30,7 @@ class InlineCombackLogin extends StatelessWidget {
           indent: 10.0,
           endIndent: 10.0,
           thickness: 1,
-          color: Colors.grey,
+          color: kColorGrey,
         )),
       ],
     );

@@ -27,11 +27,8 @@ class ButtonLogin extends StatelessWidget {
             borderRadius: BorderRadius.circular(25.0),
           ),
         ),
-        child: Text(
-          text,
-          style: const TextStyle(
-              color: kColorWhite, fontWeight: FontWeight.bold, fontSize: 20),
-        ),
+        child: Text(text,
+            style: PrimaryFont.medium(20).copyWith(color: kColorWhite)),
         onPressed: press,
       ),
     );
