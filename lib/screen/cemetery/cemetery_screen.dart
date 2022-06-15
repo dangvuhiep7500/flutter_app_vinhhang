@@ -114,11 +114,11 @@ class _CemeteryScreenState extends State<CemeteryScreen>
                 height: getProportionateScreenWidth(15),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 15),
+                padding: EdgeInsets.only(left: getProportionateScreenWidth(15)),
                 child: Search(
                   text: "Tìm kiếm nghĩa trang",
                   onpress: (value) {},
-                  width: 0.8,
+                  width: double.infinity,
                 ),
               ),
               SizedBox(
@@ -137,8 +137,11 @@ class _CemeteryScreenState extends State<CemeteryScreen>
                           width: MediaQuery.of(context).size.width * 0.05,
                           child: const Icon(Icons.location_on)),
                     ),
-                    const Text("Cần Giuộc, Long An",
-                        style: TextStyle(color: kColorBlack, fontSize: 20)),
+                    Text(
+                      "Cần Giuộc, Long An",
+                      style:
+                          PrimaryFont.regular(20).copyWith(color: kColorBlack),
+                    )
                   ],
                 ),
               ),
@@ -151,16 +154,19 @@ class _CemeteryScreenState extends State<CemeteryScreen>
                 ),
                 child: Row(
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.only(right: 20),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          right: getProportionateScreenWidth(20)),
                       child: Text(
                         "Giá từ",
-                        style: TextStyle(fontSize: 20),
+                        style:
+                            PrimaryFont.medium(20).copyWith(color: kColorBlack),
                       ),
                     ),
                     Text(
                       "${NumberFormat.decimalPattern('vi').format(15000000)} - ${NumberFormat.decimalPattern('vi').format(300000000)}",
-                      style: const TextStyle(fontSize: 20),
+                      style:
+                          PrimaryFont.regular(20).copyWith(color: kColorBlack),
                     ),
                   ],
                 ),
@@ -188,11 +194,8 @@ class _CemeteryScreenState extends State<CemeteryScreen>
                             children: [
                               Text(
                                 "${_data.getName(index)}",
-                                style: const TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w500,
-                                  color: kColorBlack,
-                                ),
+                                style: PrimaryFont.bold(24)
+                                    .copyWith(color: kColorBlack),
                               ),
                               const Divider(
                                 endIndent: 30,
@@ -204,11 +207,12 @@ class _CemeteryScreenState extends State<CemeteryScreen>
                               ),
                               Row(
                                 children: [
-                                  const Padding(
+                                  Padding(
                                     padding: EdgeInsets.only(right: 20),
                                     child: Text(
                                       "Giá từ:",
-                                      style: TextStyle(fontSize: 15),
+                                      style: PrimaryFont.bold(15)
+                                          .copyWith(color: kColorBlack),
                                     ),
                                   ),
                                   Container(
@@ -216,7 +220,8 @@ class _CemeteryScreenState extends State<CemeteryScreen>
                                         border: Border.all(color: kColorCate)),
                                     child: Text(
                                       "${NumberFormat.decimalPattern('vi').format(_data.getPriceMin(index))} - ${NumberFormat.decimalPattern('vi').format(_data.getPriceMax(index))}",
-                                      style: const TextStyle(fontSize: 15),
+                                      style: PrimaryFont.regular(15)
+                                          .copyWith(color: kColorBlack),
                                     ),
                                   ),
                                 ],
@@ -226,7 +231,8 @@ class _CemeteryScreenState extends State<CemeteryScreen>
                               ),
                               Text(
                                 "${_data.getLocal(index)}",
-                                style: const TextStyle(fontSize: 15),
+                                style: PrimaryFont.regular(15)
+                                    .copyWith(color: kColorBlack),
                               ),
                               SizedBox(
                                 height: getProportionateScreenWidth(10),

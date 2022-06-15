@@ -18,21 +18,23 @@ class InputField extends StatelessWidget {
   final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
-    SizeConfig2().init(context);
+    SizeConfig().init(context);
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 50),
+      padding:
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(50)),
       child: TextFormField(
         validator: validator,
-        style: const TextStyle(fontSize: 15),
+        style: PrimaryFont.regular(16),
         obscureText: obscuretext,
         controller: controller,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(
-              vertical: SizeConfig2.safeBlockVertical * 1,
-              horizontal: SizeConfig2.safeBlockHorizontal * 3),
+            vertical: getProportionateScreenWidth(10),
+            horizontal: getProportionateScreenWidth(10),
+          ),
           border: const OutlineInputBorder(),
           labelText: text,
-          hintStyle: const TextStyle(color: kColorGrey),
+          hintStyle: const TextStyle(color: kColorBlack),
           suffixIcon: sufixIcon,
         ),
       ),

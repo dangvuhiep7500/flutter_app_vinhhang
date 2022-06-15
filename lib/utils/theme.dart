@@ -13,12 +13,36 @@ const kColorAmber = Color(0xFFFFE082);
 const kSecondaryColor = Color(0xFF979797);
 
 class PrimaryFont {
-  static String fontFamily = '';
+  static String fontFamily = 'Roboto';
 
-  static TextStyle bold(double size) {
+  static TextStyle thin(double size) {
     return TextStyle(
       fontFamily: fontFamily,
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w100,
+      fontSize: size,
+    );
+  }
+
+  static TextStyle extralight(double size) {
+    return TextStyle(
+      fontFamily: fontFamily,
+      fontWeight: FontWeight.w200,
+      fontSize: size,
+    );
+  }
+
+  static TextStyle light(double size) {
+    return TextStyle(
+      fontFamily: fontFamily,
+      fontWeight: FontWeight.w300,
+      fontSize: size,
+    );
+  }
+
+  static TextStyle regular(double size) {
+    return TextStyle(
+      fontFamily: fontFamily,
+      fontWeight: FontWeight.w400,
       fontSize: size,
     );
   }
@@ -31,10 +55,34 @@ class PrimaryFont {
     );
   }
 
-  static TextStyle light(double size) {
+  static TextStyle semibold(double size) {
     return TextStyle(
       fontFamily: fontFamily,
-      fontWeight: FontWeight.w300,
+      fontWeight: FontWeight.w600,
+      fontSize: size,
+    );
+  }
+
+  static TextStyle bold(double size) {
+    return TextStyle(
+      fontFamily: fontFamily,
+      fontWeight: FontWeight.w700,
+      fontSize: size,
+    );
+  }
+
+  static TextStyle extrabold(double size) {
+    return TextStyle(
+      fontFamily: fontFamily,
+      fontWeight: FontWeight.w800,
+      fontSize: size,
+    );
+  }
+
+  static TextStyle black(double size) {
+    return TextStyle(
+      fontFamily: fontFamily,
+      fontWeight: FontWeight.w900,
       fontSize: size,
     );
   }

@@ -38,7 +38,7 @@ class Search extends StatelessWidget {
     Key? key,
     required this.onpress,
     required this.text,
-    required this.width,
+    this.width = 250,
   }) : super(key: key);
 
   final Function(String p1) onpress;
@@ -48,7 +48,7 @@ class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: SizeConfig.screenWidth * width,
+      width: getProportionateScreenWidth(width),
       height: getProportionateScreenWidth(40),
       decoration: BoxDecoration(
         color: kColorBlack.withOpacity(0.1),

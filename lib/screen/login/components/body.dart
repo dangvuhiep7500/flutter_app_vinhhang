@@ -30,7 +30,7 @@ class _BodyState extends State<Body> {
   var password = TextEditingController(text: "admin123");
   @override
   Widget build(BuildContext context) {
-    SizeConfig2().init(context);
+    SizeConfig().init(context);
     return Scaffold(
       body: ProgressHUD(
         inAsyncCall: isApiCallProcess,
@@ -45,7 +45,7 @@ class _BodyState extends State<Body> {
                 children: [
                   const ImageTop(),
                   SizedBox(
-                    height: SizeConfig2.screenHeight * 0.05,
+                    height: getProportionateScreenWidth(40),
                   ),
                   InputField(
                     text: "Tài khoản",
@@ -58,7 +58,7 @@ class _BodyState extends State<Body> {
                     },
                   ),
                   SizedBox(
-                    height: SizeConfig2.screenHeight * 0.0125,
+                    height: getProportionateScreenWidth(10),
                   ),
                   InputField(
                     text: "Mật khẩu",
@@ -83,7 +83,7 @@ class _BodyState extends State<Body> {
                     ),
                   ),
                   SizedBox(
-                    height: SizeConfig2.screenHeight * 0.025,
+                    height: getProportionateScreenWidth(20),
                   ),
                   ButtonLogin(
                     text: "Đăng nhập",
@@ -128,15 +128,15 @@ class _BodyState extends State<Body> {
                     },
                   ),
                   SizedBox(
-                    height: SizeConfig2.screenHeight * 0.01875,
+                    height: getProportionateScreenWidth(15),
                   ),
                   const SignFBGG(),
                   SizedBox(
-                    height: SizeConfig2.screenHeight * 0.025,
+                    height: getProportionateScreenWidth(20),
                   ),
                   const InlineOr(),
                   SizedBox(
-                    height: SizeConfig2.screenHeight * 0.01875,
+                    height: getProportionateScreenWidth(15),
                   ),
                   ButtonDefault(
                     color: kColorGreen,
@@ -147,14 +147,12 @@ class _BodyState extends State<Body> {
                     },
                   ),
                   TextButton(
-                    style: TextButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 15),
-                    ),
+                    style:
+                        TextButton.styleFrom(textStyle: PrimaryFont.medium(15)),
                     onPressed: () {},
-                    child: const Text(
-                      'Quên mật khẩu?',
-                      style: TextStyle(color: kColorGrey),
-                    ),
+                    child: Text('Quên mật khẩu?',
+                        style: PrimaryFont.regular(15)
+                            .copyWith(color: kColorGrey)),
                   ),
                 ],
               ),

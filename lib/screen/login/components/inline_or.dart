@@ -21,10 +21,8 @@ class InlineOr extends StatelessWidget {
           thickness: 1,
           color: Colors.grey,
         )),
-        const Text(
-          "Hoặc",
-          style: TextStyle(color: kColorGrey),
-        ),
+        Text("Hoặc",
+            style: PrimaryFont.regular(16).copyWith(color: kColorGrey)),
         Expanded(
             child: Divider(
           indent: SizeConfig2.screenWidth * 0.025,

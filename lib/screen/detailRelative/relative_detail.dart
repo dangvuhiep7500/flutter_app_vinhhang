@@ -72,8 +72,8 @@ class _RelativeDetailState extends State<RelativeDetail>
                               textRelationship: widget.dear.relationship,
                               textName: widget.dear.name,
                             ),
-                            const SizedBox(
-                              height: 20,
+                            SizedBox(
+                              height: getProportionateScreenWidth(20),
                             ),
                             const CardInfo(
                               text1: "Giới tính",
@@ -103,12 +103,11 @@ class _RelativeDetailState extends State<RelativeDetail>
                               height: getProportionateScreenWidth(10),
                             ),
                             SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.5,
+                              width: getProportionateScreenWidth(150),
                               child: Text(
                                 "Mộ phần",
-                                style: TextStyle(
-                                    fontSize: getProportionateScreenWidth(20),
-                                    fontWeight: FontWeight.w700),
+                                style: PrimaryFont.bold(20)
+                                    .copyWith(color: kColorBlack),
                               ),
                             ),
                             SizedBox(
@@ -139,9 +138,9 @@ class _RelativeDetailState extends State<RelativeDetail>
                             ),
                             CardImageFooter(
                               image: widget.dear.image,
-                              left: 60,
-                              height: 100,
-                              width: 100,
+                              left: getProportionateScreenWidth(50),
+                              height: getProportionateScreenWidth(100),
+                              width: getProportionateScreenWidth(100),
                               borderRadius: 10,
                             ),
                           ],

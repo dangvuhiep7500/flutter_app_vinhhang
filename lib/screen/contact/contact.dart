@@ -4,6 +4,8 @@ import 'package:flutter_app_vinhhang/screen/relative/components/header_default.d
 import 'package:flutter_app_vinhhang/screen/relative/components/search_field.dart';
 import 'package:flutter_app_vinhhang/utils/size_config.dart';
 
+import '../../utils/theme.dart';
+
 class ContactScreen extends StatefulWidget {
   const ContactScreen({Key? key}) : super(key: key);
 
@@ -88,7 +90,7 @@ class _ContactScreenState extends State<ContactScreen>
               vertical: getProportionateScreenWidth(14)),
           child: Column(
             children: [
-              Header(
+              const Header(
                 text: "Liên hệ",
               ),
               SizedBox(
@@ -97,7 +99,7 @@ class _ContactScreenState extends State<ContactScreen>
               Row(
                 children: [
                   const AvatarUser(),
-                  Search(onpress: (value) {}, text: "Tìm kiếm", width: 0.7)
+                  Search(onpress: (value) {}, text: "Tìm kiếm", width: 250)
                 ],
               ),
               SizedBox(
@@ -111,7 +113,7 @@ class _ContactScreenState extends State<ContactScreen>
                     return GestureDetector(
                       onTap: () {},
                       child: Container(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                             left: 10, right: 16, top: 10, bottom: 10),
                         child: Row(
                           children: <Widget>[
@@ -139,17 +141,17 @@ class _ContactScreenState extends State<ContactScreen>
                                         children: <Widget>[
                                           Text(
                                             "${_data.getName(index)}",
-                                            style: TextStyle(fontSize: 16),
+                                            style: PrimaryFont.regular(16)
+                                                .copyWith(color: kColorBlack),
                                           ),
                                           SizedBox(
-                                            height: 6,
+                                            height:
+                                                getProportionateScreenWidth(10),
                                           ),
                                           Text(
                                             "${_data.getMessageText(index)}",
-                                            style: TextStyle(
-                                                fontSize: 13,
-                                                color: Colors.grey.shade600,
-                                                fontWeight: FontWeight.bold),
+                                            style: PrimaryFont.bold(13)
+                                                .copyWith(color: kColorBlack),
                                           ),
                                         ],
                                       ),

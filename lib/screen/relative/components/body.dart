@@ -30,7 +30,7 @@ class Body extends StatelessWidget {
           SearchField(
             text: "Tìm kiếm",
             onpress: (value) {},
-            width: 0.7,
+            width: getProportionateScreenWidth(260),
           ),
           SizedBox(
             height: getProportionateScreenWidth(20),

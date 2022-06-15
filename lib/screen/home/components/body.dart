@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_app_vinhhang/screen/home/components/calendar.dart';
 import 'package:flutter_app_vinhhang/screen/relative/components/header_default.dart';
+import 'package:flutter_app_vinhhang/utils/size_config.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -30,11 +31,11 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
       child: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             SizedBox(
-              height: 15,
+              height: getProportionateScreenWidth(15),
             ),
-            Flexible(
+            const Flexible(
               flex: 0,
               fit: FlexFit.tight,
               child: HeaderDefault(
@@ -42,7 +43,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                 text2: "Xin chào",
               ),
             ),
-            Calendar()
+            const Calendar()
           ],
         ),
       ),

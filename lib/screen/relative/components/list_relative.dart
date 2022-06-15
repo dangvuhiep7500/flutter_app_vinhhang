@@ -33,11 +33,11 @@ class ListRelative extends StatelessWidget {
           return GridView.builder(
             primary: false,
             padding: const EdgeInsets.all(20),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
-              mainAxisExtent: 270,
+              mainAxisExtent: getProportionateScreenWidth(280),
             ),
             itemCount: dears.length + 1,
             itemBuilder: (BuildContext context, int index) {
@@ -69,9 +69,17 @@ class ListRelative extends StatelessWidget {
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(dears[index].relationship),
+                                child: Text(
+                                  dears[index].relationship,
+                                  style: PrimaryFont.medium(15)
+                                      .copyWith(color: kColorBlack),
+                                ),
                               ),
-                              Text(dears[index].name),
+                              Text(
+                                dears[index].name,
+                                style: PrimaryFont.regular(15)
+                                    .copyWith(color: kColorBlack),
+                              ),
                             ],
                           ),
                         )

@@ -31,11 +31,13 @@ class ButtonDefault extends StatelessWidget {
             borderRadius: BorderRadius.circular(borderRadius),
           ),
         ),
-        child: Text(
-          text,
-          style: const TextStyle(
-              color: kColorWhite, fontWeight: FontWeight.normal, fontSize: 16),
-        ),
+        child: Text(text,
+            // style: const TextStyle(
+            //   color: kColorWhite,
+            //   fontWeight: FontWeight.normal,
+            //   fontSize: 16,
+            // ),
+            style: PrimaryFont.regular(16).copyWith(color: kColorWhite)),
         onPressed: onpress,
       ),
     );

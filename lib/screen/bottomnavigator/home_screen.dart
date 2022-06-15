@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen>
         shape: const CircularNotchedRectangle(),
         color: kColorWhite,
         child: SizedBox(
-          height: SizeConfig2.screenHeight * 0.0925,
+          height: getProportionateScreenWidth(75),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

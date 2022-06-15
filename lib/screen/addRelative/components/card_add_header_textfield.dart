@@ -10,14 +10,14 @@ class CardHeaderTextField extends StatelessWidget {
     this.validator,
     required this.height,
     required this.horizontal,
-    this.fontSize,
+    this.fontSize = 15,
   }) : super(key: key);
   final String? textHint;
   final TextEditingController? controller;
   final FormFieldValidator? validator;
   final double height;
   final double horizontal;
-  final double? fontSize;
+  final double fontSize;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,7 +26,7 @@ class CardHeaderTextField extends StatelessWidget {
           height: height,
           padding: EdgeInsets.symmetric(horizontal: horizontal),
           child: TextField(
-            style: TextStyle(fontSize: fontSize),
+            style: PrimaryFont.medium(fontSize).copyWith(color: kColorBlack),
             controller: controller,
             decoration: InputDecoration(
               filled: true,

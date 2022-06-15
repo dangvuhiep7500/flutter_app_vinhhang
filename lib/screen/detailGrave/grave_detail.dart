@@ -24,7 +24,7 @@ class Data {
         "size": "dài 1m - rộng 1m",
         "local": "Khu A1",
         "priceMin": 15000000,
-        "priceMax": 45000000
+        "priceMax": 450000000
       },
       {
         "id": 2,
@@ -114,13 +114,13 @@ class _GraveDetailState extends State<GraveDetail>
             const Header(
               text: "Chi tiết các mộ phần",
             ),
-            const Text(
+            Text(
               "Nghĩa trang",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+              style: PrimaryFont.bold(24).copyWith(color: kColorBlack),
             ),
-            const Text(
+            Text(
               "Sài Gòn Thiên Phúc",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+              style: PrimaryFont.bold(24).copyWith(color: kColorBlack),
             ),
             Container(
               color: Colors.blueGrey[50],
@@ -139,7 +139,8 @@ class _GraveDetailState extends State<GraveDetail>
                               left: getProportionateScreenWidth(15)),
                           child: Text(
                             items,
-                            style: const TextStyle(fontSize: 15),
+                            style: PrimaryFont.medium(15)
+                                .copyWith(color: kColorBlack),
                           ),
                         ),
                       );
@@ -183,9 +184,8 @@ class _GraveDetailState extends State<GraveDetail>
                                 children: [
                                   Text(
                                     "${_data.getName(index)}",
-                                    style: const TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w600),
+                                    style: PrimaryFont.bold(20)
+                                        .copyWith(color: kColorBlack),
                                   ),
                                   SizedBox(
                                     height: getProportionateScreenWidth(15),
@@ -197,7 +197,7 @@ class _GraveDetailState extends State<GraveDetail>
                                     left: 0,
                                     width: getProportionateScreenWidth(75),
                                     widthtext2:
-                                        getProportionateScreenWidth(150),
+                                        getProportionateScreenWidth(180),
                                   ),
                                   CardInfo(
                                     text1: "Vị trí",
@@ -206,7 +206,7 @@ class _GraveDetailState extends State<GraveDetail>
                                     left: 0,
                                     width: getProportionateScreenWidth(75),
                                     widthtext2:
-                                        getProportionateScreenWidth(150),
+                                        getProportionateScreenWidth(180),
                                   ),
                                   CardInfo(
                                     text1: "Giá",
@@ -216,7 +216,7 @@ class _GraveDetailState extends State<GraveDetail>
                                     left: 0,
                                     width: getProportionateScreenWidth(75),
                                     widthtext2:
-                                        getProportionateScreenWidth(150),
+                                        getProportionateScreenWidth(180),
                                   ),
                                   SizedBox(
                                     height: getProportionateScreenWidth(15),
