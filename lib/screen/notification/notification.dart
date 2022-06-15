@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vinhhang/screen/detailRelative/components/header_relative.dart';
+import 'package:flutter_app_vinhhang/screen/relative/components/icon_button_noti.dart';
 import 'package:flutter_app_vinhhang/screen/relative/components/search_field.dart';
 
 import '../../utils/size_config.dart';
@@ -87,9 +88,17 @@ class _NotificationScreenState extends State<NotificationScreen>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Header(
-              text: "",
+            // const Header(
+            //   text: "",
+            // ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                IconBack(),
+                IconNoti(numOf: 3),
+              ],
             ),
+
             SizedBox(
               height: getProportionateScreenWidth(10),
             ),

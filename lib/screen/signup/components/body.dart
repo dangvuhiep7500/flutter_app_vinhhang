@@ -155,7 +155,12 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                     SizedBox(
                       height: getProportionateScreenWidth(20),
                     ),
-                    const InlineCombackLogin(),
+                    InlineCombackLogin(
+                      text: "Trở lại",
+                      onpress: () {
+                        Navigator.pushNamed(context, '/login');
+                      },
+                    ),
                   ],
                 ),
               ],

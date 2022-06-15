@@ -46,11 +46,11 @@ class _HomeScreenState extends State<HomeScreen>
     return Scaffold(
       body: PageView(
         controller: _myPage,
-        children: const [
-          Scaffold(body: HomePage()),
+        children: [
+          const Scaffold(body: HomePage()),
           Scaffold(body: RelativeScreen()),
-          Scaffold(body: CemeteryScreen()),
-          Scaffold(body: ContactScreen()),
+          const Scaffold(body: CemeteryScreen()),
+          const Scaffold(body: ContactScreen()),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

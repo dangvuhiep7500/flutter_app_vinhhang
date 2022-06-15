@@ -18,21 +18,32 @@ class Header extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            size: getProportionateScreenWidth(30),
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        const IconBack(),
         Text(
           text,
           style: PrimaryFont.bold(24).copyWith(color: kColorRed),
         ),
         const IconButtonNoti(),
       ],
+    );
+  }
+}
+
+class IconBack extends StatelessWidget {
+  const IconBack({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(
+        Icons.arrow_back,
+        size: getProportionateScreenWidth(30),
+      ),
+      onPressed: () {
+        Navigator.pop(context);
+      },
     );
   }
 }
