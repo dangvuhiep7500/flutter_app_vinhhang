@@ -95,7 +95,7 @@ class _NotificationScreenState extends State<NotificationScreen>
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const [
                 IconBack(),
-                IconNoti(numOf: 3),
+                IconNoti(),
               ],
             ),
 

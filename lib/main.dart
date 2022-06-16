@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_vinhhang/screen/addRelative/add_relative.dart';
 import 'package:flutter_app_vinhhang/screen/bottomnavigator/home_screen.dart';
-import 'package:flutter_app_vinhhang/screen/contact/contact.dart';
 import 'package:flutter_app_vinhhang/screen/login/login_screen.dart';
-import 'package:flutter_app_vinhhang/screen/relative/relative_screen.dart';
 import 'package:flutter_app_vinhhang/screen/religion/religion.dart';
 import 'package:flutter_app_vinhhang/screen/signup/signup_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -39,9 +37,7 @@ class MyApp extends StatelessWidget {
         '/register': (context) => const SignUpScreen(),
         '/religion': (context) => const Religion(),
         '/home': (context) => const HomeScreen(),
-        '/relative': (context) => RelativeScreen(),
         '/addRelative': (context) => const AddRelative(),
-        '/contact': (context) => const ContactScreen(),
       },
     );
   }

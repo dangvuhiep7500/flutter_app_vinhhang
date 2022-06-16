@@ -77,7 +77,7 @@ class _RelativeDetailState extends State<RelativeDetail>
                             ),
                             const CardInfo(
                               text1: "Giới tính",
-                              text2: "N?",
+                              text2: "Nữ",
                             ),
                             const CardInfo(
                               text1: "Sinh ngày",
