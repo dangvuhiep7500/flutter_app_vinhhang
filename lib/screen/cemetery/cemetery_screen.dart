@@ -1,8 +1,4 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_app_vinhhang/screen/detailCemetery/cemetery_detail.dart';
 import 'package:flutter_app_vinhhang/screen/login/components/button_default.dart';
 import 'package:flutter_app_vinhhang/screen/navigation_drawer/navigation_drawer_widget.dart';
@@ -13,7 +9,8 @@ import '../../utils/size_config.dart';
 import '../../utils/theme.dart';
 
 class CemeteryScreen extends StatefulWidget {
-  const CemeteryScreen({Key? key}) : super(key: key);
+  const CemeteryScreen({Key? key, required this.onpress}) : super(key: key);
+  final GestureTapCallback onpress;
 
   @override
   State<CemeteryScreen> createState() => _CemeteryScreenState();
@@ -110,12 +107,7 @@ class _CemeteryScreenState extends State<CemeteryScreen>
               SizedBox(
                 height: getProportionateScreenWidth(15),
               ),
-              HeaderTop(
-                text1: "Thanh Tran",
-                onpress: () {
-                  _scaffoldKey.currentState?.openDrawer();
-                },
-              ),
+              HeaderTop(text1: "Thanh Tran", onpress: widget.onpress),
               SizedBox(
                 height: getProportionateScreenWidth(15),
               ),

@@ -3,6 +3,7 @@ import 'package:flutter_app_vinhhang/screen/cemetery/cemetery_screen.dart';
 import 'package:flutter_app_vinhhang/screen/contact/contact.dart';
 import 'package:flutter_app_vinhhang/screen/home/components/calendar.dart';
 import 'package:flutter_app_vinhhang/screen/home/home_page.dart';
+import 'package:flutter_app_vinhhang/screen/navigation_drawer/navigation_drawer_widget.dart';
 import 'package:flutter_app_vinhhang/screen/relative/relative_screen.dart';
 
 import '../../../utils/size_config.dart';
@@ -18,6 +19,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final PageController _myPage = PageController(initialPage: 0);
   int index = 0;
   int _selectedIndex = 0;
@@ -44,13 +46,35 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     SizeConfig2().init(context);
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: const NavigationDrawerWidget(),
       body: PageView(
         controller: _myPage,
         children: [
-          const Scaffold(body: HomePage()),
-          Scaffold(body: RelativeScreen()),
-          const Scaffold(body: CemeteryScreen()),
-          const Scaffold(body: ContactScreen()),
+          HomePage(
+            onpress: () {
+              _scaffoldKey.currentState?.openDrawer();
+            },
+          ),
+          RelativeScreen(
+            onpress: () {
+              _scaffoldKey.currentState?.openDrawer();
+            },
+          ),
+          CemeteryScreen(
+            onpress: () {
+              _scaffoldKey.currentState?.openDrawer();
+            },
+          ),
+          ContactScreen(
+            onpress: () {
+              _scaffoldKey.currentState?.openDrawer();
+            },
+          )
+          // const Scaffold(body: HomePage()),
+          // Scaffold(body: RelativeScreen()),
+          // const Scaffold(body: CemeteryScreen()),
+          // const Scaffold(body: ContactScreen()),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

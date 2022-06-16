@@ -7,9 +7,7 @@ import '../../../utils/theme.dart';
 class IconButtonNoti extends StatelessWidget {
   const IconButtonNoti({
     Key? key,
-    this.numOf = 1,
   }) : super(key: key);
-  final int numOf;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -18,7 +16,7 @@ class IconButtonNoti extends StatelessWidget {
             builder: (context) => const NotificationScreen()));
       },
       borderRadius: BorderRadius.circular(50),
-      child: IconNoti(numOf: numOf),
+      child: const IconNoti(),
     );
   }
 }
@@ -26,7 +24,7 @@ class IconButtonNoti extends StatelessWidget {
 class IconNoti extends StatelessWidget {
   const IconNoti({
     Key? key,
-    required this.numOf,
+    this.numOf = 2,
   }) : super(key: key);
 
   final int numOf;
