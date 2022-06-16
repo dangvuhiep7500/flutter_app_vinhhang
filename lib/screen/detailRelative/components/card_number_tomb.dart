@@ -21,16 +21,32 @@ class CardNumberTomb extends StatelessWidget {
         children: <Widget>[
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.25,
-            child: Text(
-              "Số ô: $text1",
-              style: PrimaryFont.medium(15).copyWith(color: kColorBlack),
+            child: Row(
+              children: [
+                Text(
+                  "Số ô:",
+                  style: PrimaryFont.medium(15).copyWith(color: kColorBlack),
+                ),
+                Text(
+                  " $text1",
+                  style: PrimaryFont.regular(15).copyWith(color: kColorBlack),
+                ),
+              ],
             ),
           ),
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.4,
-            child: Text(
-              "Số Lô: $text2",
-              style: PrimaryFont.medium(15).copyWith(color: kColorBlack),
+            child: Row(
+              children: [
+                Text(
+                  "Số Lô:",
+                  style: PrimaryFont.medium(15).copyWith(color: kColorBlack),
+                ),
+                Text(
+                  " $text2",
+                  style: PrimaryFont.regular(15).copyWith(color: kColorBlack),
+                ),
+              ],
             ),
           ),
         ],
